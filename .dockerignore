@@ -1,0 +1,4 @@
+node_modules/
+react-app/
+!react-app/export/
+!react-app/public/
