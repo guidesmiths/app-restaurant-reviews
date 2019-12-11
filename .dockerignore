@@ -1,4 +1,3 @@
 node_modules/
-react-app/
-!react-app/export/
-!react-app/public/
+react-app/node_modules
+react-app/build
