@@ -1,20 +1,17 @@
 language: node_js
 node_js:
-  - "10"
+- "10"
 services:
-	- docker
+- docker
 before_install:
-	# install heroku CLI
-	- wget -qO- https://toolbelt.heroku.com/install.sh | sh
+# install heroku CLI
+- wget -qO- https://toolbelt.heroku.com/install.sh | sh
 install:
-	- npm install
+- npm install
 script:
-	- npm test
+- npm test
 deploy:
-	provider: script
-	script:
-		docker login --username=_ --password=$HEROKU_API_KEY registry.heroku.com;
-		heroku container:push web -a $APP_NAME;
-		heroku container:release web -a $APP_NAME;
-	on:
-		branch: master
+provider: script
+script: docker login --username=_ --password=$HEROKU_API_KEY registry.heroku.com; heroku container:push web -a $APP_NAME; heroku container:release web -a $APP_NAME;
+on:
+branch: master
