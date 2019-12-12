@@ -12,6 +12,6 @@ script:
 - npm test
 deploy:
 provider: script
-script: docker login --username=_ --password=$HEROKU_API_KEY registry.heroku.com; heroku container:push web -a $APP_NAME; heroku container:release web -a $APP_NAME;
+script: echo "$HEROKU_API_KEY" | docker login --username=_ --password-stdin registry.heroku.com; heroku container:push web -a $APP_NAME; heroku container:release web -a $APP_NAME;
 on:
 branch: master
