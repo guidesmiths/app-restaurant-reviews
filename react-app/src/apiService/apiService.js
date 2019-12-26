@@ -5,4 +5,4 @@ const getAllRestaurants = async () => {
 	return data;
 };
 
-module.exports = { getAllRestaurants };
+export { getAllRestaurants };
