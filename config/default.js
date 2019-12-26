@@ -1,7 +1,7 @@
 module.exports = {
 	server: {
 		host: '0.0.0.0',
-		port: process.env.PORT || 4000,
+		port: process.env.PORT || 4001,
 	},
 	routes: {
 		admin: {
@@ -26,6 +26,9 @@ module.exports = {
 					},
 				},
 			},
+		},
+		api: {
+			url: process.env.API_URL || 'http://0.0.0.0:4000',
 		},
 	},
 	metrics: {
@@ -67,13 +70,6 @@ module.exports = {
 			'package.name',
 			'service',
 		],
-		exclude: [
-			'password',
-			'secret',
-			'token',
-			'request.headers.cookie',
-			'dependencies',
-			'devDependencies',
-		],
+		exclude: ['password', 'secret', 'token', 'request.headers.cookie', 'dependencies', 'devDependencies'],
 	},
 };
