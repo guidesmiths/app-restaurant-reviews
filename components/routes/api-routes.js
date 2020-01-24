@@ -1,12 +1,14 @@
-// const express = require('express');
+const axios = require('axios');
 
-// module.exports = () => {
-// 	const start = async ({ app }) => {
+module.exports = () => {
+	const start = async ({ app, config }) => {
+		app.get('/api/v1/restaurants', async (req, res) => {
+			const { data } = await axios.get(`${config.url}/api/v1/restaurants`);
+			return res.json(data);
+		});
 
-// 		app.get('/api/v1/restaurants', (req, res) => res.sendFile(path.resolve(`${__dirname}/../../react-app/build/index.html`)));
+		return Promise.resolve();
+	};
 
-// 		return Promise.resolve();
-// 	};
-
-// 	return { start };
-// };
+	return { start };
+};
