@@ -22,11 +22,12 @@ const Title = styled.h4`
 
 interface Props {
 	name: string;
+	img: string;
 }
 
-const Card = ({ name }: Props) => (
+const Card = ({ name, img }: Props) => (
 	<CoolDiv>
-		<ImgContainer src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&w=1000&q=80"></ImgContainer>
+		<ImgContainer src={img}></ImgContainer>
 		<Title>{name}</Title>
 	</CoolDiv>
 );
