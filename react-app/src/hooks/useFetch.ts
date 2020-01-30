@@ -1,9 +1,10 @@
 import React from 'react';
+import * as I from '../interfaces';
 
-const useFetch = apiCall => {
-	const [response, setResponse] = React.useState(null);
+const useFetch = (apiCall: Function): [Array<I.Restaurant>, boolean, string] => {
+	const [response, setResponse] = React.useState([]);
 	const [isLoading, setLoading] = React.useState(true);
-	const [error, setError] = React.useState(null);
+	const [error, setError] = React.useState('');
 	React.useEffect(() => {
 		const fetchData = async () => {
 			try {
@@ -11,7 +12,7 @@ const useFetch = apiCall => {
 				const data = await apiCall();
 				setResponse(data);
 			} catch (error) {
-				setError(error);
+				setError(error.message);
 			} finally {
 				setLoading(false);
 			}
