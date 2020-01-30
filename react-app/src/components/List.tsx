@@ -8,10 +8,10 @@ import { getAllRestaurants } from '../apiService/apiService';
 import { useFetch } from '../hooks';
 
 const CardContainer = styled.div`
-	width: 80%;
+	width: 90%;
 	margin: 50px auto;
 	display: grid;
-	grid-template-columns: 1fr 1fr 1fr;
+	grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
 `;
 
 const List = () => {
