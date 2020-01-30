@@ -1,16 +1,32 @@
-import React from 'react';
-import { connect } from 'react-redux';
+import React, { Fragment } from 'react';
+import styled from 'styled-components';
 
-let List = ({ restaurants }) =>
-	restaurants
-		? restaurants.map((elm, idx) => (
-				<div key={idx}>
-					<p>{elm.name}</p>
-				</div>
-		  ))
-		: null;
-const mapStateToProps = state => ({
-	restaurants: state.restaurants
-});
-List = connect(mapStateToProps, null)(List);
+import Loading from './Loading';
+import Card from './Card';
+
+import { getAllRestaurants } from '../apiService/apiService';
+import { useFetch } from '../hooks';
+
+const CardContainer = styled.div`
+	width: 80%;
+	margin: 50px auto;
+	display: grid;
+	grid-template-columns: 1fr 1fr 1fr;
+`;
+
+const List = () => {
+	const [restaurants, isLoading, error] = useFetch(getAllRestaurants);
+
+	return error ? (
+		<div>An error occurred</div>
+	) : (
+		<Fragment>
+			{isLoading ? <Loading></Loading> : null}
+			<CardContainer>
+				{restaurants ? restaurants.map((elm, idx) => <Card key={idx} name={elm.name}></Card>) : null}
+			</CardContainer>
+		</Fragment>
+	);
+};
+
 export default List;
