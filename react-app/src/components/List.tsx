@@ -8,10 +8,22 @@ import { getAllRestaurants } from '../apiService/apiService';
 import { useFetch } from '../hooks';
 
 const CardContainer = styled.div`
-	width: 90%;
+	width: 74%;
 	margin: 50px auto;
 	display: grid;
-	grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+	grid-template-columns: repeat(auto-fill, minmax(310px, 1fr));
+	@media (max-width: 880px) {
+		width: 85%;
+		grid-template-columns: repeat(auto-fill, minmax(290px, 1fr));
+	}
+	@media (max-width: 540px) {
+		width: 87%;
+		grid-template-columns: repeat(auto-fill, minmax(285px, 1fr));
+	}
+	@media (max-width: 340px) {
+		width: 92%;
+		grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));
+	}
 `;
 
 const List = () => {
