@@ -1,7 +1,7 @@
 import React from 'react';
 import * as I from '../interfaces';
 
-const useFetch = (apiCall: Function): [Array<I.Restaurant>, boolean, string] => {
+const useFetch = (apiCall: Function): [Array<I.ApiResponse>, boolean, string] => {
 	const [response, setResponse] = React.useState([]);
 	const [isLoading, setLoading] = React.useState(true);
 	const [error, setError] = React.useState('');

@@ -1,30 +1,10 @@
 import React, { Fragment } from 'react';
-import styled from 'styled-components';
 
-import Loading from './Loading';
+import { Loading, CardContainer } from './styled';
 import Card from './Card';
 
 import { getAllRestaurants } from '../apiService/apiService';
 import { useFetch } from '../hooks';
-
-const CardContainer = styled.div`
-	width: 74%;
-	margin: 50px auto;
-	display: grid;
-	grid-template-columns: repeat(auto-fill, minmax(310px, 1fr));
-	@media (max-width: 880px) {
-		width: 85%;
-		grid-template-columns: repeat(auto-fill, minmax(290px, 1fr));
-	}
-	@media (max-width: 540px) {
-		width: 87%;
-		grid-template-columns: repeat(auto-fill, minmax(285px, 1fr));
-	}
-	@media (max-width: 340px) {
-		width: 92%;
-		grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));
-	}
-`;
 
 const List = () => {
 	const [restaurants, isLoading, error] = useFetch(getAllRestaurants);

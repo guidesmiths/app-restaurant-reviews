@@ -1,10 +1,11 @@
 import React from 'react';
-import List from './List';
+import List from '../components/List';
+import NavBar from '../components/NavBar';
 
 const App = () => {
 	return (
 		<div className="App">
-			<h1>Hello</h1>
+			<NavBar></NavBar>
 			<List></List>
 		</div>
 	);
