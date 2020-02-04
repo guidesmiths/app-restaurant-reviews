@@ -1,6 +1,7 @@
 import React, { Fragment } from 'react';
 
-import { Loading, CardContainer } from './styled';
+import { Loading } from './styled/Common';
+import { CardContainer } from './styled/Card';
 import Card from './Card';
 
 import { getAllRestaurants } from '../apiService/apiService';

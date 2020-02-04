@@ -1,13 +1,15 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import List from '../components/List';
 import NavBar from '../components/NavBar';
+import Header from '../components/Header';
 
 const App = () => {
 	return (
-		<div className="App">
+		<Fragment>
 			<NavBar></NavBar>
+			<Header></Header>
 			<List></List>
-		</div>
+		</Fragment>
 	);
 };
 

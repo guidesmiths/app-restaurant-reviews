@@ -1,5 +1,5 @@
 import React from 'react';
-import { CoolDiv, ImgContainer, CardTitle } from './styled';
+import { CoolDiv, ImgContainer, CardTitle } from './styled/Card';
 
 interface Props {
 	name: string;

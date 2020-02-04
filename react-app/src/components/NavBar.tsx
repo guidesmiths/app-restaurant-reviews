@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyledNavBar } from './styled';
+import { StyledNavBar } from './styled/NavBar';
 import { ReactComponent as Logo } from '../assets/gsIcon.svg';
 
 const NavBar = () => (
