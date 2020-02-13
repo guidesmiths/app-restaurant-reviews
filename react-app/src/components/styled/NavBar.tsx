@@ -15,7 +15,7 @@ export const StyledNavBar = styled.div`
 		flex-direction: column;
 		height: 100vh;
 		width: 80px;
-		transition: width 0.7s, background 0.7s;
+		transition: all 0.7s;
 		&:hover {
 			width: 300px;
 			background: rgb(250, 250, 250);
@@ -27,7 +27,7 @@ export const StyledNavBar = styled.div`
 		padding: 10px 0 0 20px;
 		height: 80px;
 		width: 100%;
-		transition: height 0.7s, background 0.7s;
+		transition: all 0.7s;
 		&:hover {
 			height: 320px;
 			background: rgb(250, 250, 250);
