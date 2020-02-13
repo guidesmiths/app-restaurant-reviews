@@ -1,7 +1,9 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import { LoginContext } from '../context/LoginContext';
 import * as I from '../interfaces';
 
 const useFetch = (apiCall: Function): [Array<I.ApiResponse>, boolean, string] => {
+	const { loginState } = useContext(LoginContext);
 	const [response, setResponse] = React.useState([]);
 	const [isLoading, setLoading] = React.useState(true);
 	const [error, setError] = React.useState('');
@@ -17,8 +19,8 @@ const useFetch = (apiCall: Function): [Array<I.ApiResponse>, boolean, string] =>
 				setLoading(false);
 			}
 		};
-		fetchData();
-	}, [apiCall]);
+		loginState && fetchData();
+	}, [loginState, apiCall]);
 	return [response, isLoading, error];
 };
 

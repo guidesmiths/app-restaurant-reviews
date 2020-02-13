@@ -3,8 +3,9 @@ import { LoginContext } from '../context/LoginContext';
 import List from '../components/List';
 import NavBar from '../components/NavBar';
 import Header from '../components/Header';
+import history from '../history';
 
-const Home = ({ history }: any) => {
+const Home = () => {
 	const { loginState } = useContext(LoginContext);
 
 	useEffect(() => {

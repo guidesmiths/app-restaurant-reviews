@@ -13,6 +13,7 @@ export const StyledNavBar = styled.div`
 	@media (min-width: 880px) {
 		padding: 20px 0 0 20px;
 		flex-direction: column;
+		justify-content: space-between;
 		height: 100vh;
 		width: 80px;
 		transition: all 0.7s;

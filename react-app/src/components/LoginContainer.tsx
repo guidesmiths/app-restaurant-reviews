@@ -3,19 +3,15 @@ import { LoginContainer, LoginTitle } from './styled/LoginContainer';
 import { LoginContext } from '../context/LoginContext';
 import { GoogleLogin } from 'react-google-login';
 
-interface Props {
-	history: Array<string>;
-}
-
-export default ({ history }: Props) => {
+export default ({ history }: any) => {
 	const { userLogin } = React.useContext(LoginContext);
 	const responseSuccess = (res: any) => {
 		const { profileObj, tokenId } = res;
-		userLogin(tokenId, profileObj, history);
+		userLogin(tokenId, profileObj);
 	};
 
 	const responseFailed = (res: any) => {
-		console.log('res faild', res);
+		console.log('res failed', res);
 		history.push('/');
 	};
 	return (
