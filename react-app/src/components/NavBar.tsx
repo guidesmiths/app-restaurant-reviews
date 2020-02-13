@@ -17,7 +17,13 @@ const NavBar = () => {
 		<StyledNavBar>
 			<Logo></Logo>
 			<NavTitle isVisible={isVisible}>MatteoAffinity</NavTitle>
-			<GoogleLogout clientId={process.env.REACT_APP_CLIENT_ID || ''} buttonText="Logout" onLogoutSuccess={userLogout} />
+			<div style={{ transform: 'rotate(270deg)', marginBottom: '60px', marginRight: '10px' }}>
+				<GoogleLogout
+					clientId={process.env.REACT_APP_CLIENT_ID || ''}
+					buttonText="Logout"
+					onLogoutSuccess={userLogout}
+				/>
+			</div>
 		</StyledNavBar>
 	);
 };
