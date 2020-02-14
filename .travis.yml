@@ -10,8 +10,6 @@ before_install:
 # install heroku CLI
 - wget -qO- https://toolbelt.heroku.com/install.sh | sh
 install:
-- echo "dummy step"
-script:
 - echo "creating env files"
 - touch ./react-app/.env.development && echo "REACT_APP_CLIENT_ID=$REACT_APP_CLIENT_ID" > ./react-app/.env.development
 - touch ./react-app/.env.production && echo "REACT_APP_CLIENT_ID=$REACT_APP_CLIENT_ID" > ./react-app/.env.production
