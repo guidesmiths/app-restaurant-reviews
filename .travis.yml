@@ -1,7 +1,4 @@
 language: node_js
-env:
-global:
-- REACT_APP_CLIENT_ID=$REACT_APP_CLIENT_ID
 node_js:
 - "10"
 services:
@@ -11,12 +8,7 @@ before_install:
 - wget -qO- https://toolbelt.heroku.com/install.sh | sh
 install:
 - echo "creating env files"
-- touch ./react-app/.env.development && echo "REACT_APP_CLIENT_ID=$REACT_APP_CLIENT_ID" > ./react-app/.env.development
 - touch ./react-app/.env.production && echo "REACT_APP_CLIENT_ID=$REACT_APP_CLIENT_ID" > ./react-app/.env.production
-- cat ./react-app/.env.development
-- cat ./react-app/.env.production
-deploy:
-provider: script
 script: echo "$HEROKU_API_KEY" | docker login --username=_ --password-stdin registry.heroku.com; heroku container:push web -a $APP_NAME; heroku container:release web -a $APP_NAME;
 on:
 branch: master
