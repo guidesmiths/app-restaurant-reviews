@@ -1,4 +1,7 @@
 language: node_js
+env:
+global:
+- REACT_APP_CLIENT_ID=$REACT_APP_CLIENT_ID
 node_js:
 - "10"
 services:
