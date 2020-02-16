@@ -6,9 +6,20 @@ services:
 before_install:
 # install heroku CLI
 - wget -qO- https://toolbelt.heroku.com/install.sh | sh
-install:
 - echo "creating env files"
 - touch ./react-app/.env.production && echo "REACT_APP_CLIENT_ID=$REACT_APP_CLIENT_ID" > ./react-app/.env.production
-script: echo "$HEROKU_API_KEY" | docker login --username=_ --password-stdin registry.heroku.com; heroku container:push web -a $APP_NAME; heroku container:release web -a $APP_NAME;
+install:
+- echo "skip install"
+before_script:
+- npm run ci:up
+- sleep 2
+script:
+- echo "pre test"
+- docker exec -it app-matteoaffinity npm run test:ci
+after_script:
+- npm run ci:down
+deploy:
+  provider: script
+  script: ./deploy.sh
 on:
 branch: master

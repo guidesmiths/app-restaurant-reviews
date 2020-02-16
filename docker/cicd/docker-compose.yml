@@ -1,0 +1,9 @@
+version: '3'
+
+services:
+  service:
+    build: ../../
+    container_name: app-matteoaffinity
+    ports:
+      - 5000:5000
+    command: ['sh', '-c', 'tail -f /dev/null']
