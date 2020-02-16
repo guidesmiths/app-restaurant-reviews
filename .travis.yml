@@ -19,7 +19,8 @@ script:
 after_script:
 - npm run ci:down
 deploy:
-  provider: script
-  script: ./deploy.sh
+	provider: script
+	skip_cleanup: true
+  script: bash ./deploy.sh $HEROKU_API_KEY $APP_NAME
 on:
 branch: master
