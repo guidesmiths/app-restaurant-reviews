@@ -20,7 +20,7 @@ before_deploy:
 - npm run ci:down
 deploy:
   provider: script
-	script: bash ./deploy.sh $HEROKU_API_KEY $APP_NAME
+  script: bash ./deploy.sh $HEROKU_API_KEY $APP_NAME
   edge: true
 on:
 branch: master
