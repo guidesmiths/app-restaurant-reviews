@@ -12,7 +12,7 @@
 		"build-app": "cd react-app && npm run build",
 		"ci:up": "docker-compose --file ./docker/cicd/docker-compose.yml pull && docker-compose --file ./docker/cicd/docker-compose.yml up -d --build --force-recreate",
 		"ci:down": "docker-compose --file ./docker/cicd/docker-compose.yml down",
-		"test-ci": "cross-env SERVICE_ENV=test mocha --reporter spec './test/**/*.test.js'",
+		"test:ci": "cross-env SERVICE_ENV=test mocha --reporter spec './test/**/*.test.js'",
 		"test": "cross-env SERVICE_ENV=test mocha --reporter spec './test/**/*.test.js'",
 		"lint": "node_modules/.bin/eslint . && cd react-app && npm run lint",
 		"manifest": "node_modules/make-manifest/bin/make-manifest",
