@@ -30,7 +30,6 @@ export const LoginContainer = styled.div`
 `;
 
 export const LoginTitle = styled.h1`
-	font-family: 'Lato', sans-serif;
 	font-weight: 700;
 	font-size: 3em;
 	margin: 0 auto 40px auto;

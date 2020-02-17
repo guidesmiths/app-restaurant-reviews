@@ -2,10 +2,8 @@ import styled from 'styled-components';
 
 export const Header = styled.div`
 	width: 70%;
-	margin: 50px auto 20px auto;
-	font-family: 'Lato', sans-serif;
+	margin: 130px auto 20px auto;
 	@media (max-width: 880px) {
-		margin-top: 130px;
 		width: 74%;
 	}
 `;
