@@ -15,7 +15,7 @@ export const DropDownStyled = styled.div`
 		width: 100%;
 	}
 	@media (min-width: 880px) {
-		max-width: ${(props: Props) => (props.isOpen ? '100%' : 0)};
+		max-width: ${(props: Props) => (props.isOpen ? '300px' : 0)};
 		width: 25vw;
 		bottom: 0;
 		right: 0;
@@ -28,7 +28,6 @@ export const DropDownStyled = styled.div`
 export const DropDownRowStyled = styled.div`
 	width: 100%;
 	height: 80px;
-	padding-right: 20px;
 	display: flex;
 	justify-content: flex-end;
 	align-items: center;
@@ -39,5 +38,8 @@ export const DropDownRowStyled = styled.div`
 	}
 	@media (min-width: 880px) {
 		border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+	}
+	&:hover {
+		background-color: rgb(230, 230, 230);
 	}
 `;
