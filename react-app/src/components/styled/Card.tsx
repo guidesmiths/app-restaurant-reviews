@@ -39,5 +39,16 @@ export const ImgContainer = styled.img`
 export const CardTitle = styled.h4`
 	font-weight: 700;
 	font-size: 1.4em;
-	margin: 12px 5px 8px auto;
+	margin: 5px 5px 2px 5px;
+`;
+export const CardRate = styled.h3`
+	font-weight: 700;
+	font-size: 2.2em;
+	margin: 5px;
+	color: #00cc99;
+`;
+export const CardTag = styled.p`
+	font-weight: 300;
+	margin: 2px 5px 2px 5px;
+	color: #00cc99;
 `;

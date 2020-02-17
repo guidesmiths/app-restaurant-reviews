@@ -17,7 +17,7 @@ const List = () => {
 			{isLoading ? <Loading></Loading> : null}
 			<CardContainer>
 				{restaurants.length
-					? restaurants.map((elm, idx) => <Card key={idx} name={elm.name} img={elm.img}></Card>)
+					? restaurants.map((elm, idx) => <Card key={idx} name={elm.name} rate={elm.rate} img={elm.img}></Card>)
 					: null}
 			</CardContainer>
 		</Fragment>

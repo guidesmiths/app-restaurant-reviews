@@ -1,15 +1,23 @@
 import React from 'react';
-import { CoolDiv, ImgContainer, CardTitle } from './styled/Card';
+import { CoolDiv, ImgContainer, CardTitle, CardRate, CardTag } from './styled/Card';
 
 interface Props {
 	name: string;
 	img: string;
+	rate: number;
 }
 
-const Card = ({ name, img }: Props) => (
+const Card = ({ name, img, rate }: Props) => (
 	<CoolDiv>
 		<ImgContainer src={img}></ImgContainer>
-		<CardTitle>{name}</CardTitle>
+		<div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+			<div>
+				<CardTitle>{name}</CardTitle>
+				<CardTag>Casera</CardTag>
+			</div>
+
+			<CardRate>{rate.toFixed(1)}</CardRate>
+		</div>
 	</CoolDiv>
 );
 
