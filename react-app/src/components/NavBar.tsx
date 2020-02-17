@@ -22,7 +22,7 @@ const NavBar = () => {
 				</div>
 				<MenuButton isOpen={isOpen} toggleOpen={toggleOpen}></MenuButton>
 			</StyledNavBar>
-			<DropDownMenu isOpen={isOpen}></DropDownMenu>
+			<DropDownMenu isOpen={isOpen} toggleOpen={toggleOpen}></DropDownMenu>
 		</Fragment>
 	);
 };
