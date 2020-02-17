@@ -37,7 +37,6 @@ export const ImgContainer = styled.img`
 	width: 100%;
 `;
 export const CardTitle = styled.h4`
-	font-family: 'Lato', sans-serif;
 	font-weight: 700;
 	font-size: 1.4em;
 	margin: 12px 5px 8px auto;

@@ -3,7 +3,6 @@ import styled from 'styled-components';
 export const Header = styled.div`
 	width: 70%;
 	margin: 130px auto 20px auto;
-	font-family: 'Lato', sans-serif;
 	@media (max-width: 880px) {
 		width: 74%;
 	}

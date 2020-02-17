@@ -25,4 +25,5 @@ export const DropDownRowStyled = styled.div`
 	justify-content: flex-end;
 	align-items: center;
 	fill: rgb(0, 153, 153);
+	cursor: pointer;
 `;
