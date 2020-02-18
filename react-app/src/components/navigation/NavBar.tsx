@@ -3,7 +3,7 @@ import { StyledNavBar } from './styled/NavBar';
 import { NavTitle } from './styled/NavTitle';
 import MenuButton from './MenuButton';
 import DropDownMenu from './DropDownMenu';
-import { ReactComponent as Logo } from '../assets/gsIcon.svg';
+import { ReactComponent as Logo } from '../../assets/gsIcon.svg';
 
 const NavBar = () => {
 	const [isTitleVisible, setTitleVisibility] = React.useState(false);

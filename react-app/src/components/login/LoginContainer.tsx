@@ -1,6 +1,6 @@
 import React from 'react';
 import { LoginContainer, LoginTitle } from './styled/LoginContainer';
-import { LoginContext } from '../context/LoginContext';
+import { LoginContext } from '../../context/LoginContext';
 import { GoogleLogin } from 'react-google-login';
 
 export default ({ history }: any) => {

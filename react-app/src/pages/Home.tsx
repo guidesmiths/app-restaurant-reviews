@@ -1,8 +1,8 @@
 import React, { Fragment, useContext, useEffect } from 'react';
 import { LoginContext } from '../context/LoginContext';
-import List from '../components/List';
-import NavBar from '../components/NavBar';
-import Header from '../components/Header';
+import List from '../components/dashboard/List';
+import NavBar from '../components/navigation/NavBar';
+import Header from '../components/navigation/Header';
 import history from '../history';
 
 const Home = () => {

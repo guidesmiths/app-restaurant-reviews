@@ -1,11 +1,11 @@
 import React, { Fragment } from 'react';
 
-import { Loading } from './styled/Common';
+import { Loading } from '../common/styled/Common';
 import { CardContainer } from './styled/Card';
 import Card from './Card';
 
-import { getAllRestaurants } from '../apiService/apiService';
-import { useFetch } from '../hooks';
+import { getAllRestaurants } from '../../apiService/apiService';
+import { useFetch } from '../../hooks';
 
 const List = () => {
 	const [restaurants, isLoading, error] = useFetch(getAllRestaurants);

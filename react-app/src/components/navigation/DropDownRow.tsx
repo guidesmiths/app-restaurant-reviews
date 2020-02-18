@@ -7,7 +7,7 @@ interface Props {
 	onClick: any;
 }
 
-export const DropDownRow: FunctionComponent<Props> = ({ text, onClick, children }) => {
+const DropDownRow: FunctionComponent<Props> = ({ text, onClick, children }) => {
 	return (
 		<DropDownRowStyled onClick={onClick}>
 			<p style={{ fontSize: '1.2em', fontWeight: 300, color: 'grey' }}>{text}</p>
@@ -15,3 +15,5 @@ export const DropDownRow: FunctionComponent<Props> = ({ text, onClick, children 
 		</DropDownRowStyled>
 	);
 };
+
+export default DropDownRow;

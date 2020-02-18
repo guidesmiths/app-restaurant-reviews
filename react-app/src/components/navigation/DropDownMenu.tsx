@@ -1,9 +1,9 @@
 import React, { Fragment } from 'react';
-import { LoginContext } from '../context/LoginContext';
+import { LoginContext } from '../../context/LoginContext';
 import { DropDownStyled } from './styled/DropDownStyled';
-import { DropDownRow } from './DropDownRow';
-import { ReactComponent as ReviewsIcon } from '../assets/reviews.svg';
-import { ReactComponent as LogoutIcon } from '../assets/logout.svg';
+import DropDownRow from './DropDownRow';
+import { ReactComponent as ReviewsIcon } from '../../assets/reviews.svg';
+import { ReactComponent as LogoutIcon } from '../../assets/logout.svg';
 
 interface Props {
 	isOpen: boolean;

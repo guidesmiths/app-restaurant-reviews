@@ -1,6 +1,6 @@
 import React from 'react';
-import { ReactComponent as Burger } from '../assets/burger.svg';
-import { ReactComponent as Close } from '../assets/close.svg';
+import { ReactComponent as Burger } from '../../assets/burger.svg';
+import { ReactComponent as Close } from '../../assets/close.svg';
 
 interface Props {
 	isOpen: boolean;
@@ -10,7 +10,7 @@ interface Props {
 const MenuButton = ({ isOpen, toggleOpen }: Props) => {
 	return (
 		<div
-			style={{ height: '40px', width: '40px', fill: 'grey', marginRight: '20px' }}
+			style={{ height: '40px', width: '40px', fill: 'grey', marginRight: '20px', cursor: 'pointer' }}
 			onClick={() => toggleOpen(!isOpen)}
 		>
 			{!isOpen ? (
