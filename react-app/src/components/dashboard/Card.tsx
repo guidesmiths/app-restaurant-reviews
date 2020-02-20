@@ -1,14 +1,15 @@
 import React from 'react';
 import { CoolDiv, ImgContainer, CardTitle, CardRate, CardTag } from './styled/Card';
 
-interface Props {
-	name: string;
-	img: string;
-	rate: number;
-}
+import { Restaurant } from '../../interfaces';
 
-const Card = ({ name, img, rate }: Props) => (
-	<CoolDiv>
+interface ClickProps {
+	onclick: (restaurant: Restaurant) => void;
+}
+type Props = Restaurant & ClickProps;
+
+const Card = ({ name, img, rate, address, avgprice, onclick }: Props) => (
+	<CoolDiv onClick={() => onclick({ name, img, rate, address, avgprice })}>
 		<ImgContainer src={img}></ImgContainer>
 		<div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
 			<div>
@@ -16,7 +17,7 @@ const Card = ({ name, img, rate }: Props) => (
 				<CardTag>Casera</CardTag>
 			</div>
 
-			<CardRate>{rate.toFixed(1)}</CardRate>
+			<CardRate>{rate && rate.toFixed(1)}</CardRate>
 		</div>
 	</CoolDiv>
 );

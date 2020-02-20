@@ -25,6 +25,7 @@ export const CoolDiv = styled.div`
 	padding: 0.7rem;
 	margin: 20px 10px;
 	box-sizing: border-box;
+	z-index: 15;
 	transition: all 0.3s;
 	cursor: pointer;
 	&:hover {

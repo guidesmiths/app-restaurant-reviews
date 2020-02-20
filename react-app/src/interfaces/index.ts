@@ -1,9 +1,9 @@
 export interface Restaurant {
-	name: string;
-	address: string;
-	rate: number;
-	avgprice: number;
-	img: string;
+	name?: string;
+	address?: string;
+	rate?: number;
+	avgprice?: number;
+	img?: string;
 }
 
 export interface Comment {

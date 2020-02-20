@@ -41,3 +41,13 @@ export const Loading = styled.div`
 		}
 	}
 `;
+
+interface CloseButtonProps {
+	diameter: number;
+}
+export const CloseButton = styled.div`
+	width: ${(props: CloseButtonProps) => props.diameter + 'px'};
+	height: ${(props: CloseButtonProps) => props.diameter + 'px'};
+	border-radius: ${(props: CloseButtonProps) => props.diameter / 2 + 'px'};
+	background-color: rgba(0, 0, 0, 0.28);
+`;

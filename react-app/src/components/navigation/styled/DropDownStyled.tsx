@@ -9,7 +9,7 @@ export const DropDownStyled = styled.div`
 	top: 80px;
 	background-color: rgb(250, 250, 250);
 	box-shadow: 0 4px 6px rgba(50, 50, 93, 0.11), 0 1px 3px rgba(0, 0, 0, 0.08);
-	z-index: 50;
+	z-index: 60;
 	@media (max-width: 880px) {
 		max-height: ${(props: Props) => (props.isOpen ? '100%' : 0)};
 		width: 100%;
