@@ -17,7 +17,10 @@ const Card = ({ name, img, rate, address, avgprice, onclick }: Props) => (
 				<CardTag>Casera</CardTag>
 			</div>
 
-			<CardRate>{rate && rate.toFixed(1)}</CardRate>
+			<CardRate>
+				{rate && rate.toFixed(1)}
+				<span style={{ fontSize: '50%', fontWeight: 300 }}>/10</span>
+			</CardRate>
 		</div>
 	</CoolDiv>
 );
