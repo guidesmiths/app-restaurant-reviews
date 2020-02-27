@@ -5,6 +5,7 @@ import { CloseButton } from '../common/styled';
 import { ReactComponent as Close } from '../../assets/close.svg';
 import { Gauge } from '@danielherrerohernando/matteoaffinity-storybook';
 import { Restaurant } from '../../interfaces';
+import ReviewsList from './ReviewsList';
 
 interface IsOpen {
 	isOpen: boolean;
@@ -62,8 +63,9 @@ export default ({ name, img, rate, address, avgprice, isOpen, onClickClose }: Re
 					<ReviewGauge data={37} text={'Service'}></ReviewGauge>
 				</div>
 				<div
-					style={{ margin: '60px auto 0 auto', height: '100px', width: '90%', borderTop: '1px solid rgba(0,0,0,0.08)' }}
+					style={{ margin: '60px auto 0 auto', height: '20px', width: '100%', borderTop: '1px solid rgba(0,0,0,0.08)' }}
 				></div>
+				<ReviewsList></ReviewsList>
 			</div>
 		</ReviewsContainer>
 	);

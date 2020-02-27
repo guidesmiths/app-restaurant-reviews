@@ -46,3 +46,19 @@ export const OverlayContainer = styled.div`
 	align-items: center;
 	justify-content: center;
 `;
+export const CommentDiv = styled.div`
+	border-radius: 5px;
+	box-sizing: border-box;
+	position: relative;
+	width: 80%;
+	background-color: white;
+	margin: 30px 5px 40px auto;
+	font-weight: lighter;
+`;
+export const CommentPic = styled.img`
+	position: absolute;
+	width: 16%;
+	top: -20px;
+	left: -20%;
+	border-radius: 50%;
+`;
