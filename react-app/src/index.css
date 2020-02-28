@@ -4,3 +4,19 @@ html {
 body {
 	margin: 0;
 }
+.boxreview {
+	display: flex;
+	flex-direction: column;
+	flex-grow: 1;
+}
+
+@media (max-width: 880px) {
+	.boxreview {
+		margin-left: 10px;
+	}
+}
+@media (min-width: 880px) {
+	.boxreview {
+		margin-left: 20px;
+	}
+}
