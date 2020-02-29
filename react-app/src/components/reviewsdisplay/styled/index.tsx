@@ -68,3 +68,25 @@ export const CommentRate = styled.div`
 	justify-content: center;
 	align-items: center;
 `;
+export const AddReviewButton = styled.button`
+	display: block;
+	background-color: #00cc99;
+	color: white;
+	cursor: pointer;
+	margin: 30px auto;
+	width: 230px;
+	height: 60px;
+	border: none;
+	border-radius: 30px;
+	font-size: 1.4em;
+	font-weight: bolder;
+	&:hover {
+		background-color: white;
+		color: #00cc99;
+		border: 2px solid #00cc99;
+	}
+	&:focus {
+		outline: 0;
+	}
+	transition: all 0.3s ease-in-out;
+`;

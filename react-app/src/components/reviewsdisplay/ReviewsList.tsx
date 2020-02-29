@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { CommentDiv, CommentPic, CommentRate } from './styled';
+import { CommentDiv, CommentPic, CommentRate, AddReviewButton } from './styled';
 
 export default () => {
 	const Review = () => (
@@ -72,6 +72,7 @@ export default () => {
 			<Review></Review>
 			<Review></Review>
 			<Review></Review>
+			<AddReviewButton>Add Review</AddReviewButton>
 		</div>
 	);
 };

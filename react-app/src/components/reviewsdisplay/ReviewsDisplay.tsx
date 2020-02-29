@@ -70,7 +70,8 @@ export default ({ name, img, rate, address, avgprice, isOpen, onClickClose }: Re
 						width: '100%',
 						borderBottom: '1px solid rgba(0,0,0,0.08)',
 						color: 'grey',
-						fontSize: '.8em',
+						fontSize: '.9em',
+						boxSizing: 'border-box',
 					}}
 				>
 					4 reviews
