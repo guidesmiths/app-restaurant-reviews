@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from 'react';
 
-import { ReviewsContainer, ImgContainer, OverlayContainer } from './styled';
+import { ReviewsContainer, ImgContainer, OverlayContainer, GaugesContainer, ReviewLineContainer } from './styled';
 import { CloseButton } from '../common/styled';
 import { ReactComponent as Close } from '../../assets/close.svg';
-import { Gauge } from '@danielherrerohernando/matteoaffinity-storybook';
 import { Restaurant } from '../../interfaces';
 import ReviewsList from './ReviewsList';
+import { OverlayTitle, ReviewGauge } from './SubComponents';
 
 interface IsOpen {
 	isOpen: boolean;
@@ -19,63 +19,24 @@ export default ({ name, img, rate, address, avgprice, isOpen, onClickClose }: Re
 		name && setRestaurantData({ name, img, rate, address, avgprice });
 	}, [name, img, rate, address, avgprice]);
 
-	const ReviewGauge = ({ data, text }) => (
-		<div style={{ margin: '0 8px' }}>
-			<Gauge diameter={70} thickness={3} innerColor={'rgb(247, 247, 247)'} data={data}></Gauge>
-			<p style={{ marginTop: '20px', textAlign: 'center', fontSize: '2.3em' }}>{text}</p>
-		</div>
-	);
-
 	return (
 		<ReviewsContainer isOpen={isOpen}>
 			<div style={{ position: 'relative', height: '100%' }}>
 				<div style={{ position: 'absolute', top: '20px', right: '20px', zIndex: 220 }}>
-					<CloseButton
-						onClick={onClickClose}
-						diameter={40}
-						style={{ fill: 'white', boxSizing: 'border-box', padding: '10px', cursor: 'pointer' }}
-					>
+					<CloseButton onClick={onClickClose} diameter={40}>
 						<Close></Close>
 					</CloseButton>
 				</div>
 				<ImgContainer src={restaurantData.img}></ImgContainer>
 				<OverlayContainer>
-					<div style={{ textAlign: 'center', width: '70%' }}>
-						<p>GuideSmiths reviews</p>
-						<div style={{ height: '2px', width: '100%', borderTop: '1px solid white' }}></div>
-						<h2>{restaurantData.name}</h2>
-					</div>
+					<OverlayTitle name={restaurantData.name}></OverlayTitle>
 				</OverlayContainer>
-				<div
-					style={{
-						boxSizing: 'border-box',
-						display: 'flex',
-						justifyContent: 'flex-end',
-						alignItems: 'center',
-						position: 'absolute',
-						top: '215px',
-						width: '95%',
-						fontSize: '6px',
-					}}
-				>
+				<GaugesContainer>
 					<ReviewGauge data={65} text={'Cuisine'}></ReviewGauge>
 					<ReviewGauge data={83} text={'Setting'}></ReviewGauge>
 					<ReviewGauge data={37} text={'Service'}></ReviewGauge>
-				</div>
-				<div
-					style={{
-						margin: '40px auto 5px auto',
-						height: '20px',
-						paddingLeft: '20px',
-						width: '100%',
-						borderBottom: '1px solid rgba(0,0,0,0.08)',
-						color: 'grey',
-						fontSize: '.9em',
-						boxSizing: 'border-box',
-					}}
-				>
-					4 reviews
-				</div>
+				</GaugesContainer>
+				<ReviewLineContainer>4 reviews</ReviewLineContainer>
 				<ReviewsList></ReviewsList>
 			</div>
 		</ReviewsContainer>

@@ -59,10 +59,10 @@ export const CommentPic = styled.img`
 	margin-bottom: 10px;
 `;
 export const CommentRate = styled.div`
-	width: 50px;
-	height: 50px;
+	width: 40px;
+	height: 40px;
 	border-radius: 50%;
-	background-color: rgba(52, 235, 168, 0.7);
+	background-color: rgb(52, 235, 168);
 	color: white;
 	display: flex;
 	justify-content: center;
@@ -89,4 +89,30 @@ export const AddReviewButton = styled.button`
 		outline: 0;
 	}
 	transition: all 0.3s ease-in-out;
+`;
+export const GaugesContainer = styled.div`
+	box-sizing: border-box;
+	display: flex;
+	justify-content: flex-end;
+	align-items: center;
+	position: absolute;
+	top: 215px;
+	width: 95%;
+	font-size: 6px;
+`;
+export const ReviewLineContainer = styled.div`
+	margin: 40px auto 5px auto;
+	height: 20px;
+	padding-left: 20px;
+	width: 100%;
+	border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+	color: grey;
+	font-size: 0.9em;
+	box-sizing: border-box;
+`;
+export const CommentInfo = styled.div`
+	width: auto;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
 `;

@@ -50,4 +50,8 @@ export const CloseButton = styled.div`
 	height: ${(props: CloseButtonProps) => props.diameter + 'px'};
 	border-radius: ${(props: CloseButtonProps) => props.diameter / 2 + 'px'};
 	background-color: rgba(0, 0, 0, 0.28);
+	fill: white;
+	box-sizing: border-box;
+	padding: 10px;
+	cursor: pointer;
 `;
