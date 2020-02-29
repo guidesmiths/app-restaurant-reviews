@@ -28,7 +28,7 @@ export default ({ name, img, rate, address, avgprice, isOpen, onClickClose }: Re
 
 	return (
 		<ReviewsContainer isOpen={isOpen}>
-			<div style={{ position: 'relative' }}>
+			<div style={{ position: 'relative', height: '100%' }}>
 				<div style={{ position: 'absolute', top: '20px', right: '20px', zIndex: 220 }}>
 					<CloseButton
 						onClick={onClickClose}
@@ -63,8 +63,18 @@ export default ({ name, img, rate, address, avgprice, isOpen, onClickClose }: Re
 					<ReviewGauge data={37} text={'Service'}></ReviewGauge>
 				</div>
 				<div
-					style={{ margin: '60px auto 0 auto', height: '20px', width: '100%', borderTop: '1px solid rgba(0,0,0,0.08)' }}
-				></div>
+					style={{
+						margin: '40px auto 5px auto',
+						height: '20px',
+						paddingLeft: '20px',
+						width: '100%',
+						borderBottom: '1px solid rgba(0,0,0,0.08)',
+						color: 'grey',
+						fontSize: '.8em',
+					}}
+				>
+					4 reviews
+				</div>
 				<ReviewsList></ReviewsList>
 			</div>
 		</ReviewsContainer>

@@ -24,7 +24,6 @@ export const ReviewsContainer = styled.div`
 		width: 35vw;
 		transform: ${(props: Props) => (props.isOpen ? 'translateX(0)' : 'translateX(-35vw)')};
 	}
-	overflow: scroll;
 	transition: all 0.5s ease-in-out;
 `;
 
@@ -63,7 +62,7 @@ export const CommentRate = styled.div`
 	width: 50px;
 	height: 50px;
 	border-radius: 50%;
-	background-color: #00cc99;
+	background-color: rgba(52, 235, 168, 0.7);
 	color: white;
 	display: flex;
 	justify-content: center;
