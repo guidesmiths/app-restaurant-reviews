@@ -67,6 +67,7 @@ export const CommentRate = styled.div`
 	display: flex;
 	justify-content: center;
 	align-items: center;
+	margin-bottom: 20px;
 `;
 export const AddReviewButton = styled.button`
 	display: block;
@@ -115,4 +116,19 @@ export const CommentInfo = styled.div`
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
+`;
+interface DisplayProps {
+	active: boolean;
+}
+export const DisplayContainer = styled.div`
+	position: relative;
+	height: 100%;
+	transform: ${(props: DisplayProps) => (props.active ? 'translateY(0)' : 'translateY(-100%)')};
+	transition: all 0.5s ease-in-out;
+`;
+export const AddReviewContainer = styled.div`
+	position: relative;
+	height: 100%;
+	transform: ${(props: DisplayProps) => (props.active ? 'translateY(-100%)' : 'translateY(0)')};
+	transition: all 0.5s ease-in-out;
 `;

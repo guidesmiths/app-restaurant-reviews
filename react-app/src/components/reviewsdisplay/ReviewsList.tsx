@@ -36,12 +36,12 @@ const Review = () => (
 	</div>
 );
 
-export default () => {
+export default ({ toggleDisplay }) => {
 	return (
 		<div
 			style={{
 				margin: '0 0 10px 20px',
-				paddingRight: '30px',
+				paddingRight: '20px',
 				overflow: 'scroll',
 				position: 'absolute',
 				top: '315px',
@@ -52,7 +52,7 @@ export default () => {
 			<Review></Review>
 			<Review></Review>
 			<Review></Review>
-			<AddReviewButton>Add Review</AddReviewButton>
+			<AddReviewButton onClick={() => toggleDisplay(false)}>Add Review</AddReviewButton>
 		</div>
 	);
 };

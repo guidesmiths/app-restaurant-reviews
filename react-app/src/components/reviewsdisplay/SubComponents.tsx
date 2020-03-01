@@ -38,3 +38,16 @@ export const ReviewRates = () => (
 		<ReviewSubRate topic="Service" rate={6.7}></ReviewSubRate>
 	</div>
 );
+
+export const RateSlider = ({ topic, value, setValue }) => (
+	<div style={{ display: 'flex', alignItems: 'center', margin: '0 20px' }}>
+		<p style={{ fontSize: '.8em' }}>
+			<span style={{ fontSize: '.9em' }}>{`${topic}`}: </span>
+			{(value / 10).toFixed(1)}
+			<span style={{ fontSize: '.8em', fontWeight: 'lighter' }}>/10</span>
+		</p>
+		<div className="slidecontainer">
+			<input type="range" max="100" value={value} className="slider" onChange={e => setValue(+e.target.value)}></input>
+		</div>
+	</div>
+);
