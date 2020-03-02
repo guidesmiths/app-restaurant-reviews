@@ -129,6 +129,17 @@ export const DisplayContainer = styled.div`
 export const AddReviewContainer = styled.div`
 	position: relative;
 	height: 100%;
+	overflow-y: scroll;
 	transform: ${(props: DisplayProps) => (props.active ? 'translateY(-100%)' : 'translateY(0)')};
 	transition: all 0.5s ease-in-out;
+`;
+export const ReviewInput = styled.textarea`
+	border: 1px solid rgba(0, 0, 0, 0.15);
+	border-radius: 4px;
+	width: 100%;
+	box-sizing: border-box;
+	height: 120px;
+	padding: 5px;
+	font-size: 1em;
+	font-weight: lighter;
 `;

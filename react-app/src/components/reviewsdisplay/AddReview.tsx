@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Gauge } from '@danielherrerohernando/matteoaffinity-storybook';
 import { RateSlider } from './SubComponents';
+import { ReviewInput, AddReviewButton } from './styled';
 
 export default ({ name }) => {
 	const [cuisineValue, setCuisineValue] = useState(0);
@@ -24,6 +25,15 @@ export default ({ name }) => {
 			<RateSlider topic="Cuisine" value={cuisineValue} setValue={setCuisineValue}></RateSlider>
 			<RateSlider topic="Setting" value={settingValue} setValue={setSettingValue}></RateSlider>
 			<RateSlider topic="Service" value={serviceValue} setValue={setServiceValue}></RateSlider>
+			<div style={{ margin: '0 20px 0 30px' }}>
+				<div style={{ textAlign: 'left', margin: '10px 0 2px 0' }}>
+					<label style={{ fontSize: '.85em' }} htmlFor="addcomment">
+						Add a comment for your review
+					</label>
+				</div>
+				<ReviewInput id="addcomment" placeholder="Write your comment here"></ReviewInput>
+			</div>
+			<AddReviewButton onClick={() => console.log('holi')}>Submit</AddReviewButton>
 		</div>
 	);
 };
