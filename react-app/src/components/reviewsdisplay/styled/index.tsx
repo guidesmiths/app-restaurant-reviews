@@ -135,6 +135,7 @@ export const AddReviewContainer = styled.div`
 `;
 export const ReviewInput = styled.textarea`
 	border: 1px solid rgba(0, 0, 0, 0.15);
+	resize: none;
 	border-radius: 4px;
 	width: 100%;
 	box-sizing: border-box;
