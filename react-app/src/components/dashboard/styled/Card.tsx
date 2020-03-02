@@ -22,7 +22,7 @@ export const CardContainer = styled.div`
 export const CoolDiv = styled.div`
 	border-radius: 5px;
 	box-shadow: 0 4px 6px rgba(50, 50, 93, 0.11), 0 1px 3px rgba(0, 0, 0, 0.08);
-	padding: 0.7rem;
+	overflow: hidden;
 	margin: 20px 10px;
 	box-sizing: border-box;
 	transition: all 0.3s;
@@ -39,16 +39,11 @@ export const ImgContainer = styled.img`
 export const CardTitle = styled.h4`
 	font-weight: 700;
 	font-size: 1.4em;
-	margin: 5px 5px 2px 5px;
+	margin: 0;
 `;
 export const CardRate = styled.h3`
 	font-weight: 700;
 	font-size: 2.2em;
-	margin: 5px;
 	color: #00cc99;
-`;
-export const CardTag = styled.p`
-	font-weight: 300;
-	margin: 2px 5px 2px 5px;
-	color: #00cc99;
+	margin: 0;
 `;
