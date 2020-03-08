@@ -19,6 +19,9 @@ export const CardContainer = styled.div`
 	}
 `;
 
+interface CoolProps {
+	inactive: boolean;
+}
 export const CoolDiv = styled.div`
 	border-radius: 5px;
 	box-shadow: 0 4px 6px rgba(50, 50, 93, 0.11), 0 1px 3px rgba(0, 0, 0, 0.08);
@@ -26,6 +29,9 @@ export const CoolDiv = styled.div`
 	margin: 20px 10px;
 	box-sizing: border-box;
 	transition: all 0.3s;
+	background-color: white;
+	transform: ${(props: CoolProps) => (props.inactive ? 'scale(.95)' : 'scale(1)')};
+	filter: ${(props: CoolProps) => (props.inactive ? 'grayscale(90%)' : 'none')};
 	cursor: pointer;
 	&:hover {
 		transform: scale(1.03);

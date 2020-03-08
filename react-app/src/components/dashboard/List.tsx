@@ -40,7 +40,9 @@ const List = () => {
 			{isLoading ? <Loading></Loading> : null}
 			<CardContainer>
 				{restaurants.length
-					? restaurants.map((elm, idx) => <Card key={idx} {...elm} onclick={onClickCard}></Card>)
+					? restaurants.map((elm, idx) => (
+							<Card key={idx} {...elm} onclick={onClickCard} inactive={reviewsIsOpen}></Card>
+					  ))
 					: null}
 			</CardContainer>
 			<ReviewsDisplay

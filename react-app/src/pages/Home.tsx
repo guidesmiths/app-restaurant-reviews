@@ -3,6 +3,7 @@ import { LoginContext } from '../context/LoginContext';
 import List from '../components/dashboard/List';
 import NavBar from '../components/navigation/NavBar';
 import Header from '../components/navigation/Header';
+import MatteoBack from '../components/common/MatteoBack';
 import history from '../history';
 
 const Home = () => {
@@ -14,6 +15,7 @@ const Home = () => {
 
 	return (
 		<Fragment>
+			<MatteoBack></MatteoBack>
 			<NavBar></NavBar>
 			<Header></Header>
 			<List></List>

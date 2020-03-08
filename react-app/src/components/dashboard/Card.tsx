@@ -5,11 +5,12 @@ import { Restaurant } from '../../interfaces';
 
 interface ClickProps {
 	onclick: (restaurant: Restaurant) => void;
+	inactive: boolean;
 }
 type Props = Restaurant & ClickProps;
 
-const Card = ({ name, img, rate, address, avgprice, onclick }: Props) => (
-	<CoolDiv onClick={() => onclick({ name, img, rate, address, avgprice })}>
+const Card = ({ name, img, rate, address, avgprice, onclick, inactive }: Props) => (
+	<CoolDiv onClick={() => onclick({ name, img, rate, address, avgprice })} inactive={inactive}>
 		<ImgContainer src={img}></ImgContainer>
 		<div style={{ margin: '0 8px 4px 8px' }}>
 			<div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '2px 5px' }}>
