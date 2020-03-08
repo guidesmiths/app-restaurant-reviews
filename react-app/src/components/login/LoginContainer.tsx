@@ -25,6 +25,18 @@ export default ({ history }: any) => {
 				cookiePolicy="single_host_origin"
 				redirectUri="/"
 			/>
+			<p
+				style={{
+					fontSize: '0.7em',
+					marginBottom: 0,
+					paddingLeft: '20px',
+					paddingRight: '20px',
+					color: 'grey',
+					textAlign: 'center',
+				}}
+			>
+				© Copyright 2020 GuideSmiths on behalf of our beloved Matteo
+			</p>
 		</LoginContainer>
 	);
 };

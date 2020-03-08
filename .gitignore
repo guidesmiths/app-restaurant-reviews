@@ -5,3 +5,4 @@ react-app/node_modules
 react-app/coverage
 *.env
 *.env.*
+.vscode

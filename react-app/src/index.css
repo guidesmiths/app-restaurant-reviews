@@ -62,3 +62,17 @@ body {
 	cursor: pointer; /* Cursor on hover */
 	border-radius: 50%;
 }
+
+.loginpage {
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	right: 0;
+	text-align: center;
+	z-index: -100;
+}
+
+.backimg {
+	height: 100%;
+	opacity: 0.3;
+}

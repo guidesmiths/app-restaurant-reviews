@@ -7,16 +7,13 @@ export const LoginContainer = styled.div`
 	box-shadow: 0 4px 6px rgba(50, 50, 93, 0.11), 0 1px 3px rgba(0, 0, 0, 0.08);
 	display: flex;
 	flex-direction: column;
-	justify-content: center;
+	justify-content: space-around;
 	align-items: center;
 	position: relative;
 	&::after {
 		content: '';
-		background-image: url('https://mk0buddhaweeklyqoftb.kinstacdn.com/wp-content/uploads/2016/03/Buddha-Weekly-Happy-pig-Buddhism.jpg');
-		background-position: center;
-		background-size: cover;
-		filter: grayscale(100%);
-		opacity: 0.04;
+		background-color: white;
+		opacity: 0.74;
 		top: 0;
 		left: 0;
 		bottom: 0;
@@ -32,7 +29,7 @@ export const LoginContainer = styled.div`
 export const LoginTitle = styled.h1`
 	font-weight: 700;
 	font-size: 3em;
-	margin: 0 auto 40px auto;
+	margin: 50px auto 0 auto;
 	@media (max-width: 540px) {
 		font-size: 2em;
 	}
