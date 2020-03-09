@@ -47,7 +47,10 @@ const List = () => {
 			</CardContainer>
 			<ReviewsDisplay
 				isOpen={reviewsIsOpen}
-				onClickClose={() => setReviewsIsOpen(false)}
+				onClickClose={() => {
+					setSelectedRestaurant(undefined);
+					setReviewsIsOpen(false);
+				}}
 				name={selectedRestaurant ? selectedRestaurant.name : ''}
 				img={selectedRestaurant ? selectedRestaurant.img : ''}
 				rate={selectedRestaurant ? selectedRestaurant.rate : 0}
