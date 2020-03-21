@@ -9,8 +9,8 @@ interface ClickProps {
 }
 type Props = Restaurant & ClickProps;
 
-const Card = ({ name, img, rate, address, avgprice, onclick, inactive }: Props) => (
-	<CoolDiv onClick={() => onclick({ name, img, rate, address, avgprice })} inactive={inactive}>
+const Card = ({ id, name, img, distance, average_rate, avgprice, onclick, inactive }: Props) => (
+	<CoolDiv onClick={() => onclick({ id, name, img, average_rate, avgprice })} inactive={inactive}>
 		<ImgContainer src={img}></ImgContainer>
 		<div style={{ margin: '0 8px 4px 8px' }}>
 			<div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '2px 5px' }}>
@@ -20,17 +20,17 @@ const Card = ({ name, img, rate, address, avgprice, onclick, inactive }: Props) 
 				</div>
 				<div style={{ textAlign: 'right' }}>
 					<CardRate>
-						{rate && rate.toFixed(1)}
+						{(average_rate && (average_rate / 10).toFixed(1)) || '-'}
 						<span style={{ fontSize: '50%', fontWeight: 300 }}>/10</span>
 					</CardRate>
 				</div>
 			</div>
 			<div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '2px 5px' }}>
 				<p style={{ fontSize: '0.7em', fontWeight: 'lighter', margin: 0 }}>
-					Distance from office: <span style={{ fontSize: '1.1em', fontWeight: 'bolder' }}>5 min</span>
+					Distance from office: <span style={{ fontSize: '1.1em', fontWeight: 'bolder' }}>{distance} min</span>
 				</p>
 				<p style={{ margin: 0, fontSize: '0.7em', fontWeight: 'lighter' }}>
-					Avg price: <span style={{ fontSize: '1.1em', fontWeight: 'bolder' }}>14.65€</span>
+					Avg price: <span style={{ fontSize: '1.1em', fontWeight: 'bolder' }}>{avgprice && avgprice.toFixed(2)}€</span>
 				</p>
 			</div>
 		</div>
