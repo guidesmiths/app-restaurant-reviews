@@ -41,8 +41,9 @@ export const ReviewRates = ({ cuisinerate, pricerate, settingrate }) => (
 
 export const RateSlider = ({ topic, value, setValue }) => (
 	<div style={{ display: 'flex', alignItems: 'center', margin: '0 20px' }}>
-		<p style={{ fontSize: '.8em' }}>
-			<span style={{ fontSize: '.9em' }}>{`${topic}`}: </span>
+		<p style={{ fontSize: '.8em', minWidth: '70px' }}>
+			<span style={{ fontSize: '.9em' }}>{`${topic}`}:</span>
+			<br></br>
 			{(value / 10).toFixed(1)}
 			<span style={{ fontSize: '.8em', fontWeight: 'lighter' }}>/10</span>
 		</p>

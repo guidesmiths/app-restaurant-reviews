@@ -2,16 +2,32 @@ import React, { useState, useEffect } from 'react';
 import { Gauge } from '@danielherrerohernando/matteoaffinity-storybook';
 import { RateSlider } from './SubComponents';
 import { ReviewInput, AddReviewButton } from './styled';
+import { postReview } from '../../apiService/apiService';
 
-export default ({ name }) => {
+export default ({ id, name }) => {
 	const [cuisineValue, setCuisineValue] = useState(0);
+	const [priceValue, setPriceValue] = useState(0);
 	const [settingValue, setSettingValue] = useState(0);
-	const [serviceValue, setServiceValue] = useState(0);
+
 	const [rate, setRate] = useState(0);
+	const [content, setContent] = useState('');
 
 	useEffect(() => {
-		setRate((cuisineValue * 2 + settingValue + serviceValue) / 4);
-	}, [cuisineValue, serviceValue, settingValue]);
+		setRate((cuisineValue * 2 + settingValue + priceValue) / 4);
+	}, [cuisineValue, priceValue, settingValue]);
+
+	const onClickSubmit = async () => {
+		try {
+			await postReview({
+				restaurant_id: id,
+				rate: rate,
+				cuisinerate: cuisineValue,
+				pricerate: priceValue,
+				settingrate: settingValue,
+				content: content,
+			});
+		} catch (error) {}
+	};
 	return (
 		<div style={{ textAlign: 'center' }}>
 			<h4 style={{ marginTop: 0, paddingTop: '50px' }}>{`Your review for ${name}`}</h4>
@@ -23,17 +39,22 @@ export default ({ name }) => {
 				{'Drag & drop to rate the different categories'}
 			</p>
 			<RateSlider topic="Cuisine" value={cuisineValue} setValue={setCuisineValue}></RateSlider>
+			<RateSlider topic="Price" value={priceValue} setValue={setPriceValue}></RateSlider>
 			<RateSlider topic="Setting" value={settingValue} setValue={setSettingValue}></RateSlider>
-			<RateSlider topic="Service" value={serviceValue} setValue={setServiceValue}></RateSlider>
 			<div style={{ margin: '0 20px 0 30px' }}>
 				<div style={{ textAlign: 'left', margin: '10px 0 2px 0' }}>
 					<label style={{ fontSize: '.85em' }} htmlFor="addcomment">
 						Add a comment for your review
 					</label>
 				</div>
-				<ReviewInput id="addcomment" placeholder="Write your comment here"></ReviewInput>
+				<ReviewInput
+					id="addcomment"
+					placeholder="Write your comment here"
+					value={content}
+					onChange={e => console.log(e)}
+				></ReviewInput>
 			</div>
-			<AddReviewButton onClick={() => console.log('holi')}>Submit</AddReviewButton>
+			<AddReviewButton onClick={() => onClickSubmit()}>Submit</AddReviewButton>
 		</div>
 	);
 };

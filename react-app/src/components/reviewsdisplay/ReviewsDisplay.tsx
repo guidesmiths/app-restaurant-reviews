@@ -71,7 +71,7 @@ export default ({ id, name, img, isOpen, onClickClose }: Restaurant & IsOpen) =>
 						<Close></Close>
 					</CloseButton>
 				</div>
-				<AddReview name={restaurantData.name}></AddReview>
+				<AddReview id={restaurantData.id} name={restaurantData.name}></AddReview>
 			</AddReviewContainer>
 		</ReviewsContainer>
 	);
