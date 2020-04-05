@@ -20,7 +20,9 @@ const Review = ({ content, rate, cuisinerate, pricerate, settingrate, date, auth
 		<div className="boxreview">
 			<CommentInfo>
 				<h5 style={{ margin: '5px 0' }}>{authorname}</h5>
-				<h5 style={{ margin: '5px 0', fontWeight: 'lighter', fontSize: '.7em' }}>{date}</h5>
+				<h5 style={{ margin: '5px 0', fontWeight: 'lighter', fontSize: '.7em' }}>
+					{date.replace('T', ' ').replace('.000Z', '')}
+				</h5>
 			</CommentInfo>
 			<CommentDiv>
 				<p style={{ margin: 0, padding: '5px 10px' }}>{content}</p>
