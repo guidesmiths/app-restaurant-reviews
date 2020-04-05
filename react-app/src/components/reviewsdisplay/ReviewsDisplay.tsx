@@ -15,19 +15,22 @@ import { Restaurant } from '../../interfaces';
 import ReviewsList from './ReviewsList';
 import { OverlayTitle, ReviewGauge } from './SubComponents';
 import AddReview from './AddReview';
+import { getRestaurantReviews } from '../../apiService/apiService';
+import { useFetch } from '../../hooks';
 
 interface IsOpen {
 	isOpen: boolean;
 	onClickClose: () => void;
 }
 
-export default ({ name, img, rate, address, avgprice, isOpen, onClickClose }: Restaurant & IsOpen) => {
-	const [restaurantData, setRestaurantData] = useState({ name, img, rate, address, avgprice });
+export default ({ id, name, img, isOpen, onClickClose }: Restaurant & IsOpen) => {
+	const [restaurantData, setRestaurantData] = useState({ id, name, img });
 	const [isDisplaying, toggleDisplay] = useState(true);
+	const [restaurantReviews, isLoading, error] = useFetch(getRestaurantReviews, restaurantData.id);
 
 	useEffect(() => {
-		name && setRestaurantData({ name, img, rate, address, avgprice });
-	}, [name, img, rate, address, avgprice]);
+		name && setRestaurantData({ id, name, img });
+	}, [id, name, img]);
 
 	useEffect(() => {
 		toggleDisplay(true);
@@ -46,12 +49,21 @@ export default ({ name, img, rate, address, avgprice, isOpen, onClickClose }: Re
 					<OverlayTitle name={restaurantData.name}></OverlayTitle>
 				</OverlayContainer>
 				<GaugesContainer>
-					<ReviewGauge data={65} text={'Cuisine'}></ReviewGauge>
-					<ReviewGauge data={83} text={'Setting'}></ReviewGauge>
-					<ReviewGauge data={37} text={'Service'}></ReviewGauge>
+					<ReviewGauge
+						data={(restaurantReviews[0] && restaurantReviews[0].cuisineavgrate) || 0}
+						text={'Cuisine'}
+					></ReviewGauge>
+					<ReviewGauge
+						data={(restaurantReviews[0] && restaurantReviews[0].priceavgrate) || 0}
+						text={'Price'}
+					></ReviewGauge>
+					<ReviewGauge
+						data={(restaurantReviews[0] && restaurantReviews[0].settingavgrate) || 0}
+						text={'Setting'}
+					></ReviewGauge>
 				</GaugesContainer>
-				<ReviewLineContainer>4 reviews</ReviewLineContainer>
-				<ReviewsList toggleDisplay={toggleDisplay}></ReviewsList>
+				<ReviewLineContainer>{(restaurantReviews[1] && restaurantReviews[1].length) || 0} reviews</ReviewLineContainer>
+				<ReviewsList reviews={restaurantReviews[1]} isLoading={isLoading} toggleDisplay={toggleDisplay}></ReviewsList>
 			</DisplayContainer>
 			<AddReviewContainer active={!isDisplaying}>
 				<div style={{ position: 'absolute', top: '20px', right: '20px', zIndex: 220 }}>
@@ -59,7 +71,7 @@ export default ({ name, img, rate, address, avgprice, isOpen, onClickClose }: Re
 						<Close></Close>
 					</CloseButton>
 				</div>
-				<AddReview name={restaurantData.name}></AddReview>
+				<AddReview id={restaurantData.id} name={restaurantData.name}></AddReview>
 			</AddReviewContainer>
 		</ReviewsContainer>
 	);

@@ -1,16 +1,21 @@
 export interface Restaurant {
-	name?: string;
-	address?: string;
-	rate?: number;
+	id?: number;
+	name: string;
+	distance?: number;
 	avgprice?: number;
-	img?: string;
+	cuisine?: string;
+	img: string;
+	average_rate?: number;
 }
-
-export interface Comment {
-	author: string;
+export interface Review {
+	id: number;
 	content: string;
-	date: string;
+	restaurant_id: number;
 	rate: number;
+	cuisinerate: number;
+	pricerate: number;
+	settingrate: number;
+	date: string;
+	authorname: string;
+	authorimg: string;
 }
-
-export type ApiResponse = Restaurant & Comment;

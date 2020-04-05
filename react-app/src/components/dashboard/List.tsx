@@ -51,11 +51,9 @@ const List = () => {
 					setSelectedRestaurant(undefined);
 					setReviewsIsOpen(false);
 				}}
+				id={selectedRestaurant ? selectedRestaurant.id : undefined}
 				name={selectedRestaurant ? selectedRestaurant.name : ''}
 				img={selectedRestaurant ? selectedRestaurant.img : ''}
-				rate={selectedRestaurant ? selectedRestaurant.rate : 0}
-				address={selectedRestaurant ? selectedRestaurant.address : ''}
-				avgprice={selectedRestaurant ? selectedRestaurant.avgprice : 0}
 			></ReviewsDisplay>
 			{selectedRestaurant ? (
 				<div

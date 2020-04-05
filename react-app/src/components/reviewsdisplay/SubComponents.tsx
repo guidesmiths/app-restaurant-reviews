@@ -24,7 +24,7 @@ const ReviewSubRate = ({ topic, rate }) => (
 		</h5>
 	</div>
 );
-export const ReviewRates = () => (
+export const ReviewRates = ({ cuisinerate, pricerate, settingrate }) => (
 	<div
 		style={{
 			width: 'auto',
@@ -33,16 +33,17 @@ export const ReviewRates = () => (
 			alignItems: 'center',
 		}}
 	>
-		<ReviewSubRate topic="Cuisine" rate={7.8}></ReviewSubRate>
-		<ReviewSubRate topic="Setting" rate={4.3}></ReviewSubRate>
-		<ReviewSubRate topic="Service" rate={6.7}></ReviewSubRate>
+		<ReviewSubRate topic="Cuisine" rate={cuisinerate && (cuisinerate / 10).toFixed(1)}></ReviewSubRate>
+		<ReviewSubRate topic="Price" rate={pricerate && (pricerate / 10).toFixed(1)}></ReviewSubRate>
+		<ReviewSubRate topic="Setting" rate={settingrate && (settingrate / 10).toFixed(1)}></ReviewSubRate>
 	</div>
 );
 
 export const RateSlider = ({ topic, value, setValue }) => (
 	<div style={{ display: 'flex', alignItems: 'center', margin: '0 20px' }}>
-		<p style={{ fontSize: '.8em' }}>
-			<span style={{ fontSize: '.9em' }}>{`${topic}`}: </span>
+		<p style={{ fontSize: '.8em', minWidth: '70px' }}>
+			<span style={{ fontSize: '.9em' }}>{`${topic}`}:</span>
+			<br></br>
 			{(value / 10).toFixed(1)}
 			<span style={{ fontSize: '.8em', fontWeight: 'lighter' }}>/10</span>
 		</p>
