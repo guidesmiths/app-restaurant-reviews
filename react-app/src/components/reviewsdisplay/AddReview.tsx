@@ -28,6 +28,7 @@ export default ({ id, name }) => {
 			});
 		} catch (error) {}
 	};
+	const handleInput = e => setContent(e.target.value);
 	return (
 		<div style={{ textAlign: 'center' }}>
 			<h4 style={{ marginTop: 0, paddingTop: '50px' }}>{`Your review for ${name}`}</h4>
@@ -51,10 +52,10 @@ export default ({ id, name }) => {
 					id="addcomment"
 					placeholder="Write your comment here"
 					value={content}
-					onChange={e => console.log(e)}
+					onChange={handleInput}
 				></ReviewInput>
 			</div>
-			<AddReviewButton onClick={() => onClickSubmit()}>Submit</AddReviewButton>
+			<AddReviewButton onClick={onClickSubmit}>Submit</AddReviewButton>
 		</div>
 	);
 };
