@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useContext } from 'react';
 
 import {
 	ReviewsContainer,
@@ -17,6 +17,7 @@ import { OverlayTitle, ReviewGauge } from './SubComponents';
 import AddReview from './AddReview';
 import { getRestaurantReviews } from '../../apiService/apiService';
 import { useFetch } from '../../hooks';
+import { RefreshContext } from '../../context/RefreshContext';
 
 interface IsOpen {
 	isOpen: boolean;
@@ -26,7 +27,9 @@ interface IsOpen {
 export default ({ id, name, img, isOpen, onClickClose }: Restaurant & IsOpen) => {
 	const [restaurantData, setRestaurantData] = useState({ id, name, img });
 	const [isDisplaying, toggleDisplay] = useState(true);
-	const [restaurantReviews, isLoading, error] = useFetch(getRestaurantReviews, restaurantData.id);
+	const { refreshFlag } = useContext(RefreshContext);
+
+	const [restaurantReviews, isLoading, error] = useFetch(getRestaurantReviews, refreshFlag, restaurantData.id);
 
 	useEffect(() => {
 		name && setRestaurantData({ id, name, img });
@@ -71,7 +74,7 @@ export default ({ id, name, img, isOpen, onClickClose }: Restaurant & IsOpen) =>
 						<Close></Close>
 					</CloseButton>
 				</div>
-				<AddReview id={restaurantData.id} name={restaurantData.name}></AddReview>
+				<AddReview id={restaurantData.id} name={restaurantData.name} close={() => toggleDisplay(true)}></AddReview>
 			</AddReviewContainer>
 		</ReviewsContainer>
 	);

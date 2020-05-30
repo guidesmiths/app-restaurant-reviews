@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
 import { LoginContext } from '../context/LoginContext';
 
-const useFetch = (apiCall: Function, param?: any): [any, boolean, string] => {
+const useFetch = (apiCall: Function, refresh: boolean, param?: any): [any, boolean, string] => {
 	const { loginState } = useContext(LoginContext);
 	const [response, setResponse] = React.useState([]);
 	const [isLoading, setLoading] = React.useState(true);
@@ -19,7 +19,7 @@ const useFetch = (apiCall: Function, param?: any): [any, boolean, string] => {
 			}
 		};
 		loginState && fetchData();
-	}, [loginState, apiCall, param]);
+	}, [loginState, apiCall, refresh, param]);
 	return [response, isLoading, error];
 };
 

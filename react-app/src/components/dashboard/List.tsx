@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react';
+import React, { Fragment, useContext } from 'react';
 
 import { Loading } from '../common/styled';
 import { CardContainer } from './styled/Card';
@@ -6,13 +6,16 @@ import Card from './Card';
 import ReviewsDisplay from '../reviewsdisplay/ReviewsDisplay';
 import { getAllRestaurants } from '../../apiService/apiService';
 import { useFetch } from '../../hooks';
+import { RefreshContext } from '../../context/RefreshContext';
 
 import { Restaurant } from '../../interfaces';
 
 const List = () => {
 	const [selectedRestaurant, setSelectedRestaurant] = React.useState<Restaurant | undefined>(undefined);
 	const [reviewsIsOpen, setReviewsIsOpen] = React.useState(false);
-	const [restaurants, isLoading, error] = useFetch(getAllRestaurants);
+	const { refreshFlag } = useContext(RefreshContext);
+
+	const [restaurants, isLoading, error] = useFetch(getAllRestaurants, refreshFlag);
 
 	const reviewsAntiDiv: any = React.useRef(null);
 
@@ -37,7 +40,7 @@ const List = () => {
 		<div>An error occurred</div>
 	) : (
 		<Fragment>
-			{isLoading ? <Loading></Loading> : null}
+			{isLoading && !restaurants.length ? <Loading></Loading> : null}
 			<CardContainer>
 				{restaurants.length
 					? restaurants.map((elm, idx) => (
