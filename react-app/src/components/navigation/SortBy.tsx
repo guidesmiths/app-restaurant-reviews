@@ -1,13 +1,16 @@
 import React from 'react';
+import { SortingContext } from '../../context/SortingContext';
 
-export default ({ setSorting }) => {
+export default () => {
+	const { changeSorting } = React.useContext(SortingContext);
+
 	return (
-		<div>
+		<div style={{ display: 'flex' }}>
 			<p>Sort by:</p>
 			<div style={{ display: 'flex' }}>
-				<button onClick={() => setSorting('rate')}>Rate</button>
-				<button onClick={() => setSorting('price')}>Price</button>
-				<button onClick={() => setSorting('distance')}>Distance</button>
+				<button onClick={() => changeSorting('rate')}>Rate</button>
+				<button onClick={() => changeSorting('price')}>Price</button>
+				<button onClick={() => changeSorting('distance')}>Distance</button>
 			</div>
 		</div>
 	);

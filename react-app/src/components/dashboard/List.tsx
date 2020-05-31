@@ -7,13 +7,21 @@ import ReviewsDisplay from '../reviewsdisplay/ReviewsDisplay';
 import { getAllRestaurants } from '../../apiService/apiService';
 import { useFetch } from '../../hooks';
 import { RefreshContext } from '../../context/RefreshContext';
+import { SortingContext } from '../../context/SortingContext';
 
 import { Restaurant } from '../../interfaces';
+
+const sortBy = {
+	rate: (a, b) => b.average_rate - a.average_rate,
+	price: (a, b) => a.avgprice - b.avgprice,
+	distance: (a, b) => a.distance - b.distance,
+};
 
 const List = () => {
 	const [selectedRestaurant, setSelectedRestaurant] = React.useState<Restaurant | undefined>(undefined);
 	const [reviewsIsOpen, setReviewsIsOpen] = React.useState(false);
 	const { refreshFlag } = useContext(RefreshContext);
+	const { criteria } = useContext(SortingContext);
 
 	const [restaurants, isLoading, error] = useFetch(getAllRestaurants, refreshFlag);
 
@@ -43,9 +51,9 @@ const List = () => {
 			{isLoading && !restaurants.length ? <Loading></Loading> : null}
 			<CardContainer>
 				{restaurants.length
-					? restaurants.map((elm, idx) => (
-							<Card key={idx} {...elm} onclick={onClickCard} inactive={reviewsIsOpen}></Card>
-					  ))
+					? restaurants
+							.sort(sortBy[criteria])
+							.map((elm, idx) => <Card key={idx} {...elm} onclick={onClickCard} inactive={reviewsIsOpen}></Card>)
 					: null}
 			</CardContainer>
 			<ReviewsDisplay

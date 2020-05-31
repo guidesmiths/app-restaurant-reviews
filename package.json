@@ -9,6 +9,7 @@
 	"scripts": {
 		"local": "cross-env SERVICE_ENV=local node index.js",
 		"start": "node index.js",
+		"start-app": "cd react-app && npm run dev",
 		"build-app": "cd react-app && npm run build",
 		"ci:up": "docker-compose --file ./docker/cicd/docker-compose.yml pull && docker-compose --file ./docker/cicd/docker-compose.yml up -d --build --force-recreate",
 		"ci:down": "docker-compose --file ./docker/cicd/docker-compose.yml down",

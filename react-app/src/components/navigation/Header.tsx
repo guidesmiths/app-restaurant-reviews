@@ -1,12 +1,13 @@
 import React from 'react';
 
-import { Header, HeaderTitle, HeaderSubTitle } from './styled/Header';
+import { Header, HeaderTitle } from './styled/Header';
+import SortBy from './SortBy';
 
 export default () => {
 	return (
 		<Header>
 			<HeaderTitle>Matteo Affinity</HeaderTitle>
-			<HeaderSubTitle>A place where sharing your thoughts is as useless as trusting Torralpoll fairness</HeaderSubTitle>
+			<SortBy></SortBy>
 		</Header>
 	);
 };
