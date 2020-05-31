@@ -76,3 +76,22 @@ body {
 	height: 100%;
 	opacity: 0.3;
 }
+
+.signingdiv {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	transform: translateY(50%);
+}
+@media (max-width: 640px) {
+	.signingdiv {
+		margin-top: 20px;
+	}
+}
+.signingdiv > button {
+	background-color: #00cc99 !important;
+}
+
+.signingdiv span {
+	font-weight: 700 !important;
+}

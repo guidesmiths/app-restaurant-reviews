@@ -1,7 +1,8 @@
 import React from 'react';
-import { LoginContainer, LoginTitle } from './styled/LoginContainer';
+import { LoginContainer, LoginContainer2, LoginTitle, LoginTitle2 } from './styled/LoginContainer';
 import { LoginContext } from '../../context/LoginContext';
 import { GoogleLogin } from 'react-google-login';
+import gsLogo from '../../assets/gs-logo.png';
 
 export default ({ history }: any) => {
 	const { userLogin } = React.useContext(LoginContext);
@@ -16,27 +17,22 @@ export default ({ history }: any) => {
 	};
 	return (
 		<LoginContainer>
-			<LoginTitle>Matteo Affinity</LoginTitle>
-			<GoogleLogin
-				clientId={process.env.REACT_APP_CLIENT_ID || ''}
-				buttonText="Sign in with Google"
-				onSuccess={responseSuccess}
-				onFailure={responseFailed}
-				cookiePolicy="single_host_origin"
-				redirectUri="/"
-			/>
-			<p
-				style={{
-					fontSize: '0.7em',
-					marginBottom: 0,
-					paddingLeft: '20px',
-					paddingRight: '20px',
-					color: 'grey',
-					textAlign: 'center',
-				}}
-			>
-				© Copyright 2020 GuideSmiths on behalf of our beloved Matteo
-			</p>
+			<LoginContainer2>
+				<img style={{ width: '150px' }} src={gsLogo}></img>
+				<LoginTitle>Matteo</LoginTitle>
+				<LoginTitle2>Affinity</LoginTitle2>
+				<div className="signingdiv">
+					<GoogleLogin
+						clientId={process.env.REACT_APP_CLIENT_ID || ''}
+						buttonText="Sign in with Google"
+						onSuccess={responseSuccess}
+						onFailure={responseFailed}
+						cookiePolicy="single_host_origin"
+						redirectUri="/"
+						theme="dark"
+					/>
+				</div>
+			</LoginContainer2>
 		</LoginContainer>
 	);
 };
