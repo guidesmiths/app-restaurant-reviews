@@ -21,7 +21,7 @@ const List = () => {
 	const [selectedRestaurant, setSelectedRestaurant] = React.useState<Restaurant | undefined>(undefined);
 	const [reviewsIsOpen, setReviewsIsOpen] = React.useState(false);
 	const { refreshFlag } = useContext(RefreshContext);
-	const { criteria } = useContext(SortingContext);
+	const { criteria, flip } = useContext(SortingContext);
 
 	const [restaurants, isLoading, error] = useFetch(getAllRestaurants, refreshFlag);
 
@@ -53,7 +53,15 @@ const List = () => {
 				{restaurants.length
 					? restaurants
 							.sort(sortBy[criteria])
-							.map((elm, idx) => <Card key={idx} {...elm} onclick={onClickCard} inactive={reviewsIsOpen}></Card>)
+							.map((elm, idx) => (
+								<Card
+									key={criteria + elm.name}
+									{...elm}
+									onclick={onClickCard}
+									inactive={reviewsIsOpen}
+									flip={flip}
+								></Card>
+							))
 					: null}
 			</CardContainer>
 			<ReviewsDisplay
