@@ -102,7 +102,7 @@ body {
 	height: 100%;
 	transform: rotateY(180deg);
 	transform-style: preserve-3d;
-	animation: example 0.6s linear;
+	animation: example 0.4s linear;
 }
 
 @keyframes example {
@@ -112,4 +112,8 @@ body {
 	to {
 		transform: rotateY(180deg);
 	}
+}
+
+.card-minimatt {
+	width: 25%;
 }

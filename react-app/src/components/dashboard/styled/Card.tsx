@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 export const CardContainer = styled.div`
 	width: 74%;
-	margin: 60px auto 50px auto;
+	margin: 30px auto 50px auto;
 	display: grid;
 	grid-template-columns: repeat(auto-fill, minmax(310px, 1fr));
 	@media (max-width: 880px) {
@@ -42,7 +42,7 @@ export const CoolDiv = styled.div`
 	overflow: hidden;
 	margin: 20px 10px;
 	box-sizing: border-box;
-	transition: all 0.6s linear;
+	transition: all 0.4s linear;
 	background-color: white;
 	backface-visibility: hidden;
 	transform: ${(props: CoolProps) => (props.flip ? 'rotateY(360deg)' : 'rotateY(180deg)')};
@@ -53,12 +53,16 @@ export const CoolDivBack = styled.div`
 	width: 100%;
 	border-radius: 5px;
 	overflow: hidden;
-	transition: all 0.6s linear;
+	transition: all 0.4s linear;
 	box-shadow: 0 4px 6px rgba(50, 50, 93, 0.11), 0 1px 3px rgba(0, 0, 0, 0.08);
 	box-sizing: border-box;
-	background-color: rgba(0, 0, 0, 0.08);
+	background-color: rgb(250, 250, 250);
+	border: 1px solid rgb(151, 247, 215);
 	backface-visibility: hidden;
 	transform: ${(props: CoolProps) => (!props.flip ? 'rotateY(0deg)' : 'rotateY(180deg)')};
+	display: flex;
+	align-items: center;
+	justify-content: center;
 `;
 export const ImgContainer = styled.img`
 	object-fit: cover;

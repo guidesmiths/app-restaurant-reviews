@@ -1,6 +1,6 @@
 import React from 'react';
 import { SuperDiv, CoolDiv, CoolDivBack, ImgContainer, CardTitle, CardRate } from './styled/Card';
-
+import miniMatt from '../../assets/minimatt.png';
 import { Restaurant } from '../../interfaces';
 
 interface ClickProps {
@@ -40,7 +40,9 @@ const Card = ({ id, name, img, distance, average_rate, avgprice, onclick, inacti
 				</div>
 			</CoolDiv>
 			<div style={{ width: '100%', height: '100%', padding: '20px 10px', boxSizing: 'border-box' }}>
-				<CoolDivBack flip={flip}></CoolDivBack>
+				<CoolDivBack flip={flip}>
+					<img src={miniMatt} className="card-minimatt"></img>
+				</CoolDivBack>
 			</div>
 		</div>
 	</SuperDiv>
