@@ -2,7 +2,7 @@ import React, { createContext, useState } from 'react';
 import history from '../history';
 
 const initialContext = {
-	loginState: false,
+	loginState: !!localStorage.getItem('token'),
 	userProfile: {},
 	userLogin: (token: string, profile: {}) => undefined,
 	userLogout: () => undefined,
@@ -11,8 +11,8 @@ const initialContext = {
 const LoginContext = createContext(initialContext);
 
 const LoginContextProvider = ({ children }) => {
-	const [loginState, setLoginState] = useState(false);
-	const [userProfile, setUserProfile] = useState({});
+	const [loginState, setLoginState] = useState(initialContext.loginState);
+	const [userProfile, setUserProfile] = useState(initialContext.userProfile);
 
 	const userLogin = (token: string, profile: {}): undefined => {
 		localStorage.setItem('token', token);
