@@ -33,6 +33,7 @@ export const Button = styled.button`
 	}
 	&:hover {
 		color: ${(props: PropsB) => (props.active ? 'white' : '#00cc99')};
+		transform: scale(1.05);
 	}
 `;
 
@@ -41,7 +42,7 @@ export const Back = styled.div`
 	background-color: #00cc99;
 	height: 100%;
 	width: 100px;
-	border-radius: 5px;
+	border-radius: 15px;
 	box-sizing: border-box;
 	transition: all 0.4s;
 	left: ${(props: Props) => `${props.position * 33.33}%`};
