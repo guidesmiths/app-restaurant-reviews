@@ -1,22 +1,19 @@
 import React, { useContext } from 'react';
-import { Router, Route, Switch, Redirect } from 'react-router-dom';
 import { LoginContext } from './context/LoginContext';
-import history from './history';
+import gsLogo from './assets/gs-logo.png';
 
 import Home from './pages/Home';
 import Login from './pages/Login';
 
+const SuperLoader = () => (
+	<div style={{ position: 'absolute', top: '50%', left: '50%' }}>
+		<img className="superloader" src={gsLogo}></img>
+	</div>
+);
 const AppRouter = () => {
-	const { loginState } = useContext(LoginContext);
-	return (
-		<Router history={history}>
-			<Switch>
-				<Route path="/login" exact component={Login} />
-				<Route path="/home" exact component={Home} />
-				<Route render={() => (loginState ? <Redirect to="/home" /> : <Redirect to="/login" />)} />
-			</Switch>
-		</Router>
-	);
+	const { loginState, checking } = useContext(LoginContext);
+	if (checking) return <SuperLoader />;
+	return loginState ? <Home></Home> : <Login />;
 };
 
 export default AppRouter;
