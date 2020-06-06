@@ -18,7 +18,7 @@ export default ({ history }: any) => {
 	return (
 		<LoginContainer>
 			<LoginContainer2>
-				<img style={{ width: '150px' }} src={gsLogo}></img>
+				<img alt="gslogo" style={{ width: '150px' }} src={gsLogo}></img>
 				<LoginTitle>Matteo</LoginTitle>
 				<LoginTitle2>Affinity</LoginTitle2>
 				<div className="signingdiv">

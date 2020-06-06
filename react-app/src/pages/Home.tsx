@@ -1,18 +1,10 @@
-import React, { Fragment, useContext, useEffect } from 'react';
-import { LoginContext } from '../context/LoginContext';
+import React, { Fragment } from 'react';
 import List from '../components/dashboard/List';
 import NavBar from '../components/navigation/NavBar';
 import Header from '../components/navigation/Header';
 import MatteoBack from '../components/common/MatteoBack';
-import history from '../history';
 
 const Home = () => {
-	const { loginState } = useContext(LoginContext);
-
-	useEffect(() => {
-		!loginState && history.push('/login');
-	}, [loginState]);
-
 	return (
 		<Fragment>
 			<MatteoBack></MatteoBack>

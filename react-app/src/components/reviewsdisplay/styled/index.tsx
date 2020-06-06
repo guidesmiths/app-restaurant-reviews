@@ -133,6 +133,17 @@ export const AddReviewContainer = styled.div`
 	transform: ${(props: DisplayProps) => (props.active ? 'translateY(-100%)' : 'translateY(0)')};
 	transition: all 0.5s ease-in-out;
 `;
+export const TitleInput = styled.textarea`
+	border: 1px solid rgba(0, 0, 0, 0.15);
+	resize: none;
+	border-radius: 4px;
+	width: 100%;
+	box-sizing: border-box;
+	height: 40px;
+	padding: 5px;
+	font-size: 1em;
+	font-weight: lighter;
+`;
 export const ReviewInput = styled.textarea`
 	border: 1px solid rgba(0, 0, 0, 0.15);
 	resize: none;

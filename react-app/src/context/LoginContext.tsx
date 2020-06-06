@@ -1,5 +1,4 @@
 import React, { createContext, useState, useEffect } from 'react';
-import history from '../history';
 import axios from 'axios';
 
 const initialContext = {

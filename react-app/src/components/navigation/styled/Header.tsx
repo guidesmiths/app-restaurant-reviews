@@ -11,12 +11,23 @@ export const Header = styled.div`
 export const HeaderTitle = styled.h1`
 	font-weight: 700;
 	font-size: 2em;
-	margin-bottom: 10px;
-	padding-bottom: 10px;
-	border-bottom: 3px solid #00c6ae;
+	margin: 0;
 `;
 
 export const HeaderSubTitle = styled.p`
 	font-weight: 300;
 	font-size: 1em;
+`;
+
+export const AddPollButton = styled.button`
+	width: 30px;
+	height: 30px;
+	border-radius: 15px;
+	background-color: #00cc99;
+	margin-inline-start: 10px;
+	border: none;
+	color: white;
+	font-size: 1.3em;
+	cursor: pointer;
+	outline: none;
 `;

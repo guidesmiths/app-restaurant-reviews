@@ -14,7 +14,7 @@ const Card = ({ id, name, img, distance, average_rate, avgprice, onclick, inacti
 	<SuperDiv id={name} onClick={() => onclick({ id, name, img, average_rate, avgprice })} inactive={inactive}>
 		<div className="flip-card-inner">
 			<CoolDiv flip={flip}>
-				<ImgContainer src={img}></ImgContainer>
+				<ImgContainer src={img} alt={name + '-img'}></ImgContainer>
 				<div style={{ margin: '0 8px 4px 8px' }}>
 					<div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '2px 5px' }}>
 						<div>
@@ -41,7 +41,7 @@ const Card = ({ id, name, img, distance, average_rate, avgprice, onclick, inacti
 			</CoolDiv>
 			<div style={{ width: '100%', height: '100%', padding: '20px 10px', boxSizing: 'border-box' }}>
 				<CoolDivBack flip={flip}>
-					<img src={miniMatt} className="card-minimatt"></img>
+					<img alt="backface" src={miniMatt} className="card-minimatt"></img>
 				</CoolDivBack>
 			</div>
 		</div>

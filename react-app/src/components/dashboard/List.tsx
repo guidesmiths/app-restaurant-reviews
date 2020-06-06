@@ -8,8 +8,10 @@ import { getAllRestaurants } from '../../apiService/apiService';
 import { useFetch } from '../../hooks';
 import { RefreshContext } from '../../context/RefreshContext';
 import { SortingContext } from '../../context/SortingContext';
+import { PollContext } from '../../context/PollContext';
 
 import { Restaurant } from '../../interfaces';
+import CreatePoll from '../createPoll/CreatePoll';
 
 const sortBy = {
 	rate: (a, b) => b.average_rate - a.average_rate,
@@ -22,6 +24,7 @@ const List = () => {
 	const [reviewsIsOpen, setReviewsIsOpen] = React.useState(false);
 	const { refreshFlag } = useContext(RefreshContext);
 	const { criteria, flip } = useContext(SortingContext);
+	const { isPollOpen, updateOptions } = useContext(PollContext);
 
 	const [restaurants, isLoading, error] = useFetch(getAllRestaurants, refreshFlag);
 
@@ -49,7 +52,7 @@ const List = () => {
 	) : (
 		<Fragment>
 			{isLoading && !restaurants.length ? <Loading></Loading> : null}
-			<CardContainer>
+			<CardContainer isMoved={isPollOpen}>
 				{restaurants.length
 					? restaurants
 							.sort(sortBy[criteria])
@@ -57,7 +60,7 @@ const List = () => {
 								<Card
 									key={criteria + elm.name}
 									{...elm}
-									onclick={onClickCard}
+									onclick={isPollOpen ? () => updateOptions(elm.name) : onClickCard}
 									inactive={reviewsIsOpen}
 									flip={flip}
 								></Card>
@@ -74,6 +77,7 @@ const List = () => {
 				name={selectedRestaurant ? selectedRestaurant.name : ''}
 				img={selectedRestaurant ? selectedRestaurant.img : ''}
 			></ReviewsDisplay>
+			<CreatePoll></CreatePoll>
 			{selectedRestaurant ? (
 				<div
 					style={{ position: 'fixed', top: 80, bottom: 0, left: 0, right: 0, zIndex: 10 }}

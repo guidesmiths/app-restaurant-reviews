@@ -1,6 +1,13 @@
 import styled from 'styled-components';
 
+interface ContainerProps {
+	isMoved: boolean;
+	children: any;
+}
 export const CardContainer = styled.div`
+	transform: ${(props: ContainerProps) =>
+		props.isMoved ? 'translateX(-15vw) translateY(-5%) scale(0.9)' : 'translateX(0)'};
+	transition: transform 0.5s;
 	width: 74%;
 	margin: 30px auto 50px auto;
 	display: grid;
@@ -22,6 +29,7 @@ export const CardContainer = styled.div`
 interface CoolProps {
 	inactive?: boolean;
 	flip?: boolean;
+	draggable?: boolean;
 }
 export const SuperDiv = styled.div`
 	background-color: transparent;
@@ -45,6 +53,7 @@ export const CoolDiv = styled.div`
 	transition: all 0.4s linear;
 	background-color: white;
 	backface-visibility: hidden;
+	z-index: 20;
 	transform: ${(props: CoolProps) => (props.flip ? 'rotateY(360deg)' : 'rotateY(180deg)')};
 	cursor: pointer;
 `;
