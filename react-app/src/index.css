@@ -147,7 +147,11 @@ body {
 	transform: scale(1.03);
 	cursor: pointer;
 }
-
+@media (max-width: 640px) {
+	.add-poll {
+		display: none;
+	}
+}
 .emptyoptions {
 	height: 100%;
 	text-align: center;

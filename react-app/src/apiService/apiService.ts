@@ -44,7 +44,14 @@ const pollToSlack = async (id: string, title: string, options: Array<string>): P
 				type: 'section',
 				text: {
 					type: 'mrkdwn',
-					text: `A new poll has been created with the title: \n *${title}* \n You can vote here -> https://torralpoll.lucas1004jx.now.sh/polls?id=${id}`,
+					text: `A new poll has been created with the title: \n *${title}*`,
+				},
+			},
+			{
+				type: 'section',
+				text: {
+					type: 'mrkdwn',
+					text: `You can vote here -> https://torralpoll.lucas1004jx.now.sh/polls?id=${id}`,
 				},
 			},
 			{
