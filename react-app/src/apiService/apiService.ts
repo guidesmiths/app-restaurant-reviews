@@ -24,4 +24,43 @@ const postReview = async (review): Promise<any> => {
 	return data;
 };
 
-export { getAllRestaurants, getRestaurantReviews, postReview };
+const createPoll = async (title: string, description: string, options: Array<string>): Promise<any> => {
+	const pollData = {
+		name: title,
+		description,
+		options,
+		category: 'restaurant',
+	};
+	const { data } = await axios.post(`/api/v1/createpoll`, pollData, {
+		headers: { Authorization: localStorage.getItem('token') },
+	});
+	return data;
+};
+
+const pollToSlack = async (id: string, title: string, options: Array<string>): Promise<any> => {
+	const slackPayload = {
+		blocks: [
+			{
+				type: 'section',
+				text: {
+					type: 'mrkdwn',
+					text: `A new poll has been created with the title: \n *${title}* \n You can vote here -> https://torralpoll.lucas1004jx.now.sh/polls?id=${id}`,
+				},
+			},
+			{
+				type: 'section',
+				text: {
+					type: 'mrkdwn',
+					text: `The options are:`,
+				},
+			},
+		],
+		attachments: options.map(option => ({ text: option })),
+		icon_emoji: ':matteo:',
+		username: 'MatteoAffinity',
+	};
+	await axios.post(`/api/v1/polltoslack`, slackPayload);
+	return;
+};
+
+export { getAllRestaurants, getRestaurantReviews, postReview, createPoll, pollToSlack };

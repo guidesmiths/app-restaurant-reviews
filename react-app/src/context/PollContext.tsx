@@ -5,6 +5,7 @@ const initialContext = {
 	toggle: (pos: boolean) => undefined,
 	options: new Array(),
 	updateOptions: (opt: string) => undefined,
+	reset: () => undefined,
 };
 
 const PollContext = createContext(initialContext);
@@ -24,11 +25,17 @@ const PollContextProvider = ({ children }) => {
 		return;
 	};
 
+	const reset = (): undefined => {
+		setOptions([]);
+		return;
+	};
+
 	const value = {
 		isPollOpen,
 		toggle,
 		options,
 		updateOptions,
+		reset,
 	};
 
 	return <PollContext.Provider value={{ ...value }}>{children}</PollContext.Provider>;

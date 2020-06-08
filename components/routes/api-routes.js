@@ -38,6 +38,28 @@ module.exports = () => {
 			}
 		});
 
+		app.post('/api/v1/createpoll', async (req, res) => {
+			try {
+				const { data } = await axios.post(`${config.torralpoll_create_url}`, req.body, {
+					headers: { Authorization: req.headers.authorization },
+				});
+				return res.json(data);
+			} catch (error) {
+				return res.json(error);
+			}
+		});
+
+		app.post('/api/v1/polltoslack', async (req, res) => {
+			try {
+				const { data } = await axios.post(`${config.slack}`, req.body, {
+					headers: { 'Content-type': 'application/json' },
+				});
+				return res.json(data);
+			} catch (error) {
+				return res.json(error);
+			}
+		});
+
 		return Promise.resolve();
 	};
 

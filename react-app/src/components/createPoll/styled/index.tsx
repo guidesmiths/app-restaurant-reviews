@@ -26,9 +26,20 @@ export const CreatePollContainer = styled.div`
 	}
 	transition: all 0.5s ease-in-out;
 `;
+interface DisplayProps {
+	active: boolean;
+}
 export const EditContainer = styled.div`
 	position: relative;
 	height: 100%;
+	transform: ${(props: DisplayProps) => (props.active ? 'translateY(0)' : 'translateY(-100%)')};
+	transition: all 0.5s ease-in-out;
+`;
+export const PollSuccessContainer = styled.div`
+	position: relative;
+	height: 100%;
+	transform: ${(props: DisplayProps) => (props.active ? 'translateY(-100%)' : 'translateY(0)')};
+	transition: all 0.5s ease-in-out;
 `;
 export const ChoicesContainer = styled.div`
 	border-radius: 5px;

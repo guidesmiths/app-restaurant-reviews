@@ -29,6 +29,8 @@ module.exports = {
 		},
 		api: {
 			url: process.env.API_URL || 'http://0.0.0.0:4000',
+			torralpoll_create_url: process.env.TORRALPOLL_CREATE_URL || 'https://torralbot-back.herokuapp.com/create',
+			slack: process.env.SLACK_WEBHOOK_URL,
 		},
 	},
 	metrics: {
