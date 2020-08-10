@@ -1,15 +1,15 @@
 module.exports = {
 	server: {
 		host: '0.0.0.0',
-		port: process.env.PORT || 4001,
+		port: process.env.PORT || 5000,
 	},
 	routes: {
 		admin: {
 			swaggerOptions: {
 				swaggerDefinition: {
 					info: {
-						description: 'Documentation for app-matteoaffinity',
-						title: 'app-matteoaffinity',
+						description: 'Documentation for app-restaurant-reviews',
+						title: 'app-restaurant-reviews',
 						version: '1.0.0',
 					},
 					host: process.env.SERVICE_ENV || 'localhost:4000',
