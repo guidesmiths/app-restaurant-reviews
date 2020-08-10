@@ -8,8 +8,8 @@ module.exports = {
 			swaggerOptions: {
 				swaggerDefinition: {
 					info: {
-						description: 'Documentation for app-matteoaffinity',
-						title: 'app-matteoaffinity',
+						description: 'Documentation for app-restaurant-reviews',
+						title: 'app-restaurant-reviews',
 						version: '1.0.0',
 					},
 					host: process.env.SERVICE_ENV || 'localhost:4000',
