@@ -15,7 +15,7 @@ before_script:
 - sleep 2
 script:
 - echo "pre test"
-- docker exec -it app-matteoaffinity npm run test:ci
+- docker exec -it app-restaurant-reviews npm run test:ci
 before_deploy:
 - npm run ci:down
 deploy:
