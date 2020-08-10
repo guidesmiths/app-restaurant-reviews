@@ -1,4 +1,4 @@
-# Restautant Reviews
+# Restaurant Reviews
 
 A project to review and vote for restaurants. It has two repositories:
 
