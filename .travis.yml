@@ -1,23 +1,23 @@
 language: node_js
 node_js:
-- "10"
+  - '10'
 services:
-- docker
+  - docker
 before_install:
-# install heroku CLI
-- wget -qO- https://toolbelt.heroku.com/install.sh | sh
-- echo "creating env files"
-- touch ./react-app/.env.production && echo "REACT_APP_CLIENT_ID=$REACT_APP_CLIENT_ID" > ./react-app/.env.production
+  # install heroku CLI
+  - wget -qO- https://toolbelt.heroku.com/install.sh | sh
+  - echo "creating env files"
+  - touch ./react-app/.env.production && echo "REACT_APP_CLIENT_ID=$REACT_APP_CLIENT_ID" > ./react-app/.env.production
 install:
-- echo "skip install"
+  - echo "skip default install travis step"
 before_script:
-- npm run ci:up
-- sleep 2
+  - npm run ci:up
+  - sleep 2
 script:
-- echo "pre test"
-- docker exec -it app-restaurant-reviews npm run test:ci
+  - echo "pre test"
+  - docker exec -it app-restaurant-reviews npm run test:ci
 before_deploy:
-- npm run ci:down
+  - npm run ci:down
 deploy:
   provider: script
   skip_cleanup: true
