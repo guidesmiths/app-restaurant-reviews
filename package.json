@@ -52,7 +52,7 @@
 		"express": "^4.17.1",
 		"express-swagger-generator": "^1.1.15",
 		"hogan.js": "^3.0.2",
-		"make-manifest": "^1.0.1",
+		"make-manifest": "^1.0.2",
 		"on-headers": "^1.0.1",
 		"optimist": "^0.6.1",
 		"optional": "^0.1.3",
